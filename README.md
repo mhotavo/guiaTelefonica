@@ -1,20 +1,18 @@
-# guiaTelefonica
-
 Table: person
-id
-1. firstName*
-2. secondName
-3. surname*
-4. secondSurname
-5. phone*
-6. cellPhone*
-7. address*
-8. city*
-9. website
-10. facebook
-11. email*
-12. tweeter
-13. instagram
+$ id
+$ firstName*
+$ secondName
+$ surname*
+$ secondSurname
+$ phone*
+$ cellPhone*
+$ address*
+$ city*
+$ website
+$ facebook
+$ email*
+$ tweeter
+$ instagram
 -------------------------------------
 
 Table: company
