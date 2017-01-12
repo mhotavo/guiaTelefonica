@@ -13,10 +13,10 @@ class AddCityTable extends Migration
      */
     public function up()
     {
-        Schema::create('city', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('cities', function (Blueprint $table) {
+            $table->increments('id')->unsigned();;
             $table->integer('idDepartament')->unsigned();
-            $table->foreign('foreign_departament')->references('id')->on('departament')->onDelete('cascade');
+            $table->foreign('idDepartament')->references('id')->on('departaments')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class AddCityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('city');
+        Schema::dropIfExists('cities');
     }
 }
