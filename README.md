@@ -9,6 +9,7 @@
 		$	address*
 		$	city*
 		$	website
+		$	profession
 		$	facebook
 		$	email*
 		$	tweeter
@@ -28,7 +29,6 @@
 		$	instagram
 		$	email*
 
- 
 
 # 	Table:branchOffice
 		$	id
@@ -38,6 +38,17 @@
 		$	phone
 		$	cellphone
 
+# 	Table:Departament
+		$	id
+		$	name
 
+# 	Table:City
+		$	id
+		$ 	idDepartament
+		$	name
+
+#	Table:Category
+		$	id
+		$	name
 
 
