@@ -15,8 +15,8 @@ class AddCityTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id')->unsigned();;
-            $table->integer('idDepartament')->unsigned();
-            $table->foreign('idDepartament')->references('id')->on('departaments')->onDelete('cascade');
+            $table->integer('idDepartment')->unsigned();
+            $table->foreign('idDepartment')->references('id')->on('departments')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });

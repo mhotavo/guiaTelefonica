@@ -8,11 +8,11 @@ class City extends Model
 {
 	protected $table ="cities";
 
-	protected $fillable =['idDepartament', 'name'];
+	protected $fillable =['idDepartment', 'name'];
 
-	public function departament()
+	public function department()
 	{
-		return $this->belongsTo('App\Departament');
+		return $this->belongsTo('App\Department');
 	}
 
 	public function companies()

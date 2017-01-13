@@ -52,3 +52,5 @@
 		$	name
 
 
+# Resources
+		$ 	www.materialpalette.com
