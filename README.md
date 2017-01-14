@@ -8,12 +8,12 @@
 		$	cellPhone*
 		$	address*
 		$	city*
-		$	website
-		$	profession
-		$	facebook
 		$	email*
-		$	tweeter
-		$	instagram
+		$	profession
+		$	website -- NO
+		$	facebook -- NO
+		$	tweeter -- NO
+		$	instagram --NO
  
 
 #	Table: company

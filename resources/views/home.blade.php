@@ -10,13 +10,75 @@
 </head>
 <body>     
     <div class="row expanded">
-        <div class="small-12 medium-12 large- default-primary-color">
+        <div class="small-12 medium-12 large- accent-color  box-small">
             Menu
         </div>
     </div>
     <div class="row">
-        <div class="small-12 medium-7 large-7 columns ">Buscador</div>
-        <div class="small-12 medium-5 large-5 columns dark-primary-color">Form</div>
+        <div class="small-12 medium-12 large-12 columns  dark-primary-color  box">
+                <form>
+                  <div class="row">
+                    <div class="medium-6 columns">
+                      <label>1er. Nombre
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                    <div class="medium-6 columns">
+                      <label>2do. Nombre
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="medium-6 columns">
+                      <label>1er. Apellido
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                    <div class="medium-6 columns">
+                      <label>2do. Apellido
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="medium-6 columns">
+                      <label>Teléfono
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                    <div class="medium-6 columns">
+                      <label>Celular
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="medium-6 columns">
+                      <label>Dirección
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                    <div class="medium-6 columns">
+                      <label>Ciudad
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="medium-6 columns">
+                      <label>Email
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                    <div class="medium-6 columns">
+                      <label>Ocupación
+                        <input type="text" placeholder="">
+                      </label>
+                    </div>
+                  </div>
+                </form> 
+        </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>
