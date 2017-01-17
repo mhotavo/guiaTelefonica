@@ -20,8 +20,6 @@ class AddPerson1Table extends Migration
        $table->string('surname');
        $table->string('secondSurname')->nullable();
        $table->date('birthday')->nullable();
-       $table->integer('phone');
-       $table->integer('cellPhone');
        $table->string('address');
        $table->integer('idCity')->unsigned();
        $table->string('profession');

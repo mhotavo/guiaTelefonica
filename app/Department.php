@@ -12,6 +12,6 @@ class Department extends Model
 
 	public function cities()
 	{
-		return $this->hasMany('App\City');
+		 return $this->hasMany('App\City');
 	}
 }

@@ -54,3 +54,6 @@
 
 # Resources
 		$ 	www.materialpalette.com
+		$ 	https://github.com/akalongman/sublimetext-codeformatter
+		$ 	http://itsolutionstuff.com/post/laravel-5-autocomplete-using-bootstrap-typeahead-js-example-with-demoexample.html
+		$ 	https://github.com/bassjobsen/Bootstrap-3-Typeahead
