@@ -26,3 +26,5 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
+
+$router->get('import', 'ImportController@import');

@@ -8,7 +8,7 @@ class Department extends Model
 {
 	protected $table ="departments";
 
-	protected $fillable =['name'];
+	protected $fillable =['id','name'];
 
 	public function cities()
 	{
