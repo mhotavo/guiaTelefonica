@@ -24,7 +24,12 @@ Route::get('autocomplete', array('as' => 'autocomplete', 'uses' => 'SearchContro
 Route::get('/login', 'Auth\LoginController@showLoginForm' );
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
+Route::get('/dashboard', 'HomeController@index');
+Route::resource('/person', 'HomeController@person');
 
-Route::get('/home', 'HomeController@index');
 
-$router->get('import', 'ImportController@import');
+
+
+#Imports
+#$router->get('importDepartments', 'ImportController@departments');
+#$router->get('importCities', 'ImportController@cities');
