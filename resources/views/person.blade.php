@@ -14,23 +14,23 @@
                             Primer Nombre:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="firstName" placeholder=""/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="surname">
-                            Segundo Nombre:
-                        </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="surname" placeholder=""/>
+                            <input type="text" required class="form-control" name="firstName" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="secondName">
+                            Segundo Nombre:
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="secondName" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="surname">
                             Primer Apellido:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="secondName" placeholder=""/>
+                            <input type="text" required class="form-control" name="surname" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -38,7 +38,7 @@
                             Segundo Apellido:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="secondSurname" placeholder=""/>
+                            <input type="text" class="form-control" name="secondSurname" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -46,7 +46,7 @@
                             Fecha Nacimiento:
                         </label>
                         <div class="col-sm-10">
-                            <input type="date" required class="form-control" id="birthday" placeholder=""/>
+                            <input type="date" required class="form-control" name="birthday" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,7 +54,7 @@
                             Dirección:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" required class="form-control" id="address" placeholder=""/>
+                            <input type="text" required class="form-control" name="address" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -62,8 +62,8 @@
                             Ciudad:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="typeahead form-control" id="city" placeholder=""/>
-                            <input type="hidden" class="form-control" id="idCity" placeholder=""/>
+                            <input type="text" class="typeahead form-control" name="city" id="city" placeholder=""/>
+                            <input type="hidden" class="form-control" id="idCity" name="idCity" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -71,7 +71,7 @@
                             Profesión:
                         </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="profession" placeholder=""/>
+                            <input type="text" class="form-control" name="profession" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -79,7 +79,7 @@
                             E-mail:
                         </label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" placeholder=""/>
+                            <input type="email" class="form-control" name="email" placeholder=""/>
                         </div>
                     </div>
                     <div class="form-group ">

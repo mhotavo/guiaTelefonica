@@ -36,9 +36,8 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-      $user = new User($request->all());
-      $user->password = bcrypt($request->password);
-      $user->save();
+      $user = new Person($request->all());
+       $user->save();
       flash('Usuario creado satisfactoriamente.', 'success');
       return redirect()->route('person.index');
 
