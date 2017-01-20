@@ -97,7 +97,7 @@
                                 <li class="divider"></li>
                                 <li>
                                     <a href="{{ url('company') }}">
-                                    Empresa
+                                        Empresa
                                     </a>
                                 </li>
                             </ul>
@@ -127,6 +127,17 @@
         </div>
     </nav>
     <div class="container">
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @include('flash::message')  
         @yield('content')
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

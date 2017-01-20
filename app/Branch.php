@@ -19,4 +19,9 @@ class Branch extends Model
 	{
 		return $this->belongsTo('App\City');
 	}
+
+	public function phones()
+	{
+		return $this->hasMany('App\Phone');
+	}
 }

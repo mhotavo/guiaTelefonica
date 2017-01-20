@@ -15,15 +15,17 @@ class AddPhonesTable extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idCompany')->unsigned();
-            $table->integer('idPerson')->unsigned();
-            $table->integer('indicator')->nullable();;
-            $table->integer('phone');
-            $table->integer('extension')->nullable();;
-            $table->char('whatsapp', 1)->nullable();;
+            $table->integer('idCompany')->unsigned()->nullable();
+            $table->integer('idPerson')->unsigned()->nullable();
+            $table->integer('idBranch')->unsigned()->nullable();
+            $table->integer('indicator')->nullable()->default('57');             
+            $table->string('phone');
+            $table->integer('extension')->nullable();
+            $table->char('whatsapp', 1)->nullable();
 
             $table->foreign('idCompany')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('idPerson')->references('id')->on('persons')->onDelete('cascade');
+            $table->foreign('idBranch')->references('id')->on('branchoffices')->onDelete('cascade');
             $table->timestamps();
         });
     }

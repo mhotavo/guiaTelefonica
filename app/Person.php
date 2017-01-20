@@ -6,12 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected $table = "persons";
+	protected $table = "persons";
 
-    protected $fillable = ['firstName', 'secondName', 'surname', 'secondSurname', 'birthday', 'phone', 'cellPhone', 'address', 'idCity', 'profession', 'email', 'website', 'facebook', 'twitter', 'instagram'];
+	protected $fillable = ['firstName', 'secondName', 'surname', 'secondSurname', 'birthday', 'phone', 'cellPhone', 'address', 'idCity', 'profession', 'email', 'website', 'facebook', 'twitter', 'instagram'];
 
-    public function city()
-    {
-        return $this->belongsTo('App\City');
-    }
+	public function city()
+	{
+		return $this->belongsTo('App\City');
+	}
+
+
+	public function phones()
+	{
+		return $this->hasMany('App\Phone');
+	}
 }

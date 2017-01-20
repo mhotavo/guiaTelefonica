@@ -24,4 +24,9 @@ class Company extends Model
 	{
 		return $this->hasMany('App\Branch');
 	}
+
+	public function phones()
+	{
+		return $this->hasMany('App\Phone');
+	}
 }
