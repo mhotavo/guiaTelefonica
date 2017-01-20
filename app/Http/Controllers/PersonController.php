@@ -36,12 +36,23 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-      $user = new Person($request->all());
-       $user->save();
-      flash('Usuario creado satisfactoriamente.', 'success');
-      return redirect()->route('person.index');
+        $this->validate($request, [
+            'firstName' => 'required|unique:posts|max:255',
+            'secondName' => 'required',
+            'surname' => 'required',
+            'secondSurname' => 'required',
+            'secondName' => 'required',
+            'secondName' => 'required',
+            'secondName' => 'required',
+            'secondName' => 'required',
+            ]);
 
-  }
+        $user = new Person($request->all());
+        $user->save();
+        flash('Persona creada Correctamente', 'success')->important();
+        return redirect()->route('person.index');
+
+    }
 
     /**
      * Display the specified resource.
