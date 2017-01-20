@@ -25,7 +25,7 @@ Route::get('/login', 'Auth\LoginController@showLoginForm' );
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 Route::get('/dashboard', 'HomeController@index');
-Route::resource('person', 'PersonController');
+Route::resource('/person', 'PersonController');
 
 
 

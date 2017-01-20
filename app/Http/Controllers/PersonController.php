@@ -13,6 +13,13 @@ class PersonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index()
     {
       return view('person');
@@ -37,7 +44,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-     $this->validate($request, [
+       $this->validate($request, [
         'firstName' => 'required|max:30',
         'secondName' => 'max:30',
         'surname' => 'required|max:30',
@@ -49,22 +56,22 @@ class PersonController extends Controller
         'email' => 'email|unique:persons',
         'phones' => 'required',
         ]);
-     $user = new Person($request->all());
-     $user->save();
-     $phones = new Phone();
-     $phonesArray= $request->input('phones'); 
-     $ExtArray= $request->input('extensions'); 
-     foreach ($phonesArray as $key => $value) {
-       $phones->idPerson = $user->id;
-       $phones->phone = $value;
-       $phones->extension = $ExtArray[$key];
-       $phones->save();
-   }
+       $user = new Person($request->all());
+       $user->save();
+       $phones = new Phone();
+       $phonesArray= $request->input('phones'); 
+       $ExtArray= $request->input('extensions'); 
+       foreach ($phonesArray as $key => $value) {
+         $phones->idPerson = $user->id;
+         $phones->phone = $value;
+         $phones->extension = $ExtArray[$key];
+         $phones->save();
+     }
 
-   flash('Persona creada Correctamente', 'success')->important();
-   return redirect()->route('person.index');
+     flash('Persona creada Correctamente', 'success')->important();
+     return redirect()->route('person.index');
 
-}
+ }
 
     /**
      * Display the specified resource.
