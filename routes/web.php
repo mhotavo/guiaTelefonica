@@ -16,17 +16,24 @@ Route::get('/', function () {
 });
 
 
-Route::get('search', array('as' => 'search', 'uses' => 'SearchController@search'));
-Route::get('autocomplete', array('as' => 'autocomplete', 'uses' => 'SearchController@autocomplete'));
+Route::post('search', array('as' => 'search', 'uses' => 'SearchController@search'));
+Route::get('SearchCities', array('as' => 'SearchCities', 'uses' => 'SearchController@SearchCities'));
+Route::get('SearchCategories', array('as' => 'SearchCategories', 'uses' => 'SearchController@SearchCategories'));
 
 
  // Auth::routes();
-Route::get('/login', 'Auth\LoginController@showLoginForm' );
-Route::post('/login', 'Auth\LoginController@login');
-Route::post('/logout', 'Auth\LoginController@logout');
-Route::get('/dashboard', 'HomeController@index');
-Route::resource('/person', 'PersonController');
+Route::get('login', 'Auth\LoginController@showLoginForm' );
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
 
+
+
+Route::group(['prefix'=>'admin'], function(){
+
+	Route::get('/', 'HomeController@index');
+	Route::resource('person', 'PersonController');
+
+});
 
 
 #Imports

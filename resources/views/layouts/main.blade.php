@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}"/>
-        <title>
-            Guía Telefónica | @yield('tittle', 'Buscar')
-        </title>
-        <link href="css/bootstrap.min.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="css/font-awesome.min.css"/>
-        <script>
-            window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-                ]); ?>
-            </script>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <title>
+        Guía Telefónica | @yield('tittle', 'Buscar')
+    </title>
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+            ]); ?>
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -90,7 +90,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/person') }}">
+                                    <a href="{{ route('person.index') }}">
                                         Persona
                                     </a>
                                 </li>
@@ -146,24 +146,39 @@
             @yield('content')
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
         <script>
-              var path = "{{ route('autocomplete') }}";
-              $('input.typeahead').typeahead({
-                source:  function (query, process) {
-                    return $.get(path, { query: query }, function (data) {
-                            //console.log(data);
-                            return process(data);
-                        });
-                },
-                updater: function(item) {
-                    $('#idCity').val(item.id);
-                    return item;
-                }
-        
-            });
-        </script>
-        @yield('script')
-    </body>
+          var pathCity = "{{ route('SearchCities') }}";
+          $('#city').typeahead({
+            source:  function (query, process) {
+                return $.get(pathCity, { query: query }, function (data) {
+                    return process(data);
+                });
+            },
+            updater: function(item) {
+                $('#idCity').val(item.id);
+                return item;
+            }
+
+        });
+
+          var pathCategory = "{{ route('SearchCategories') }}";
+          $('#search').typeahead({
+            source:  function (query, process) {
+                return $.get(pathCategory, { query: query }, function (data) {
+                    return process(data);
+                });
+            },
+            updater: function(item) {
+                $('#idCategory').val(item.id);
+                return item;
+            }
+
+        });
+
+
+    </script>
+    @yield('script')
+</body>
 </html>
