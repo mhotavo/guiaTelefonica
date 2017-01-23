@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\City;
 use App\Person;
+use App\Company;
 
 
 class SearchController extends Controller
@@ -16,11 +17,22 @@ class SearchController extends Controller
   {
     $this->validate($request, [
       'search' => 'required',
-      'idCity' => 'required'
+      'idCity' => 'required',
+      'typeSearch' => 'required',
       ]);
-    $persons = Person::Name($request->input('search'))->get();
 
-    printf(($persons));
+    if ($request->input('typeSearch')=="Person" ) {
+      #scope validar city
+      $persons = Person::Name($request->input('search'))->get();
+      printf(($persons));
+    }elseif ($request->input('typeSearch')=="Company"){
+      #scope validar city
+      $companies = Company::Name($request->input('search'))->get();
+      printf(($companies));
+    }
+
+
+
 
   }
 
@@ -51,7 +63,7 @@ class SearchController extends Controller
     ->where("c.name","LIKE","%{$request->input('query')}%")
     ->get();
     return response()->json($data);
-    
+
   }
 
 }

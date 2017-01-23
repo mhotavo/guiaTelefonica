@@ -16,7 +16,11 @@
                 <input type="hidden" class="form-control" required  name="idCity" id="idCity">
                 <input type="hidden" class="form-control" name="idCategory" id="idCategory">
             </div>
-            <button type="submit" class="btn btn-default">Buscar</button>
+            <div class="form-group">
+                <label class="radio-inline"><input type="radio" name="typeSearch" checked value="Company">Empresas</label>
+                <label class="radio-inline"><input type="radio" name="typeSearch" value="Person">Personas</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
         </form>
     </div>
 </div>

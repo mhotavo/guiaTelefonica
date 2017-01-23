@@ -29,4 +29,10 @@ class Company extends Model
 	{
 		return $this->hasMany('App\Phone');
 	}
+
+	public function scopeName($query, $name)
+	{
+		return $query->where('name', 'LIKE', "%$name%")
+		->orWhere('description', 'LIKE',"%$name%");
+	}
 }

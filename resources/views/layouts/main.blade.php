@@ -174,8 +174,8 @@
                 $('#idCategory').val(item.id);
                 return item;
             }
-
         });
+          
 
 
     </script>
