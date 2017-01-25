@@ -28,6 +28,15 @@ class SearchController extends Controller
     }elseif ($request->input('typeSearch')=="Company"){
       #scope validar city
       $companies = Company::Name($request->input('search'))->get();
+
+      $city=$request->input('idCity') ;
+      $companies = $companies->filter(function($company) use ($city)
+      {
+       if ($company->idCity==$city) {
+         return true;
+       }
+     });
+
       printf(($companies));
     }
 
