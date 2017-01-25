@@ -97,7 +97,7 @@
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="{{ url('company') }}">
+                                    <a href="{{ route('company.index') }}">
                                         Empresa
                                     </a>
                                 </li>
@@ -164,7 +164,7 @@
         });
 
           var pathCategory = "{{ route('SearchCategories') }}";
-          $('#search').typeahead({
+          $('#search, #category').typeahead({
             source:  function (query, process) {
                 return $.get(pathCategory, { query: query }, function (data) {
                     return process(data);

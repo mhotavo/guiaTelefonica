@@ -16,20 +16,25 @@ class SearchController extends Controller
   public function search(Request $request)
   {
     $this->validate($request, [
-      'search' => 'required',
-      'idCity' => 'required',
-      'typeSearch' => 'required',
-      ]);
+     'search' => 'required',
+     'idCity' => 'required',
+     'typeSearch' => 'required',
+     ]);
+    $city=$request->input('idCity') ;
 
     if ($request->input('typeSearch')=="Person" ) {
-      #scope validar city
       $persons = Person::Name($request->input('search'))->get();
-      printf(($persons));
-    }elseif ($request->input('typeSearch')=="Company"){
-      #scope validar city
-      $companies = Company::Name($request->input('search'))->get();
+      $persons = $persons->filter(function($person) use ($city)
+      {
+       if ($person->idCity==$city) {
+         return true;
+       }
+     });
 
-      $city=$request->input('idCity') ;
+      printf(($persons));
+    }
+    elseif ($request->input('typeSearch')=="Company"){
+      $companies = Company::Name($request->input('search'))->get();
       $companies = $companies->filter(function($company) use ($city)
       {
        if ($company->idCity==$city) {

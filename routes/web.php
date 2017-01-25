@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin'], function(){
 
 	Route::get('/', 'HomeController@index');
 	Route::resource('person', 'PersonController');
+	Route::resource('company', 'CompanyController');
 
 });
 
