@@ -12,12 +12,12 @@ class Company extends Model
 
 	public function category()
 	{
-		return $this->belongsTo('App\Category');
+		return $this->belongsTo('App\Category', 'idCategory');
 	}
 
 	public function city()
 	{
-		return $this->belongsTo('App\City');
+		return $this->belongsTo('App\City', 'idCity');
 	}
 
 	public function branches()

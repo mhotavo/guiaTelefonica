@@ -13,10 +13,20 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('admin.company');
-    }
+       #$companies= Company::find(3);
+       #$companies->category->name
+     $companies = Company::orderBy('name', 'ASC')->paginate(20);
+     return view('admin.companies')->with('companies', $companies);
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +35,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.createCompany');
     }
 
     /**
@@ -58,8 +68,8 @@ class CompanyController extends Controller
             $phones->save();
         }
 
-     #flash('Empresa creada Correctamente', 'success')->important();
-     #return redirect()->route('company.index');
+        flash('Empresa creada Correctamente', 'success')->important();
+        return redirect()->route('company.index');
     }
 
     /**
@@ -81,7 +91,9 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company= Company::find($id);
+        $phones = Phone::find('idCompany', '=', $id);
+        return view('admin.editCompany')->with('company', $company);
     }
 
     /**
@@ -104,6 +116,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Company::destroy($id);
+        flash('Empresa Eliminada Correctamente', 'success')->important();
+        return redirect()->route('company.index');
     }
 }

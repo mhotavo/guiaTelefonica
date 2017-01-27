@@ -12,7 +12,7 @@ class City extends Model
 
 	public function department()
 	{
-		return $this->belongsTo('App\Department','id');
+		return $this->belongsTo('App\Department','idDepartment');
 	}
 
 	public function companies()
