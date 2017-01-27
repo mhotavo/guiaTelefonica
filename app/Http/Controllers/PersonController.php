@@ -23,7 +23,7 @@ class PersonController extends Controller
     public function index()
     {
         return view('admin.person');
-  }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -44,7 +44,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-       $this->validate($request, [
+     $this->validate($request, [
         'firstName' => 'required|max:30',
         'secondName' => 'max:30',
         'surname' => 'required|max:30',
@@ -56,22 +56,24 @@ class PersonController extends Controller
         'email' => 'email|unique:persons',
         'phones' => 'required',
         ]);
-       $user = new Person($request->all());
-       $user->save();
-       $phones = new Phone();
-       $phonesArray= $request->input('phones'); 
-       $ExtArray= $request->input('extensions'); 
-       foreach ($phonesArray as $key => $value) {
-         $phones->idPerson = $user->id;
-         $phones->phone = $value;
-         $phones->extension = $ExtArray[$key];
-         $phones->save();
-     }
+     $person = new Person($request->all());
+     $person->save();
+     $phonesArray= $request->input('phones'); 
+     $ExtArray= $request->input('extensions'); 
+     
+     foreach ($phonesArray as $key => $value) {
+        $phones = new Phone();
+        $phones->idPerson = $person->id;
+        $phones->phone = $value;
+        $phones->extension = $ExtArray[$key];
+        $phones->save();
 
-     flash('Persona creada Correctamente', 'success')->important();
-     return redirect()->route('person.index');
+    }
 
- }
+    flash('Persona creada Correctamente', 'success')->important();
+    return redirect()->route('person.index');
+
+}
 
     /**
      * Display the specified resource.

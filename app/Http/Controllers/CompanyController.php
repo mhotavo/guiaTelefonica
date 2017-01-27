@@ -40,27 +40,27 @@ class CompanyController extends Controller
             'name' => 'required|max:30',
             'address' => 'required|max:50',
             'idCity' => 'required',
-            'email' => 'email|unique:persons',
+            'email' => 'email|unique:companies',
             'phones' => 'required',
+            'category' => 'required',
+            'idCategory' => 'required',
             ]);
         $company = new Company($request->all());
         $company->save();
-        $phones = new Phone();
         $phonesArray= $request->input('phones'); 
         $ExtArray= $request->input('extensions'); 
 
-        echo $company->id; 
-
         foreach ($phonesArray as $key => $value) {
-         $phones->idCompany = $company->id;
-         $phones->phone = $value;
-         $phones->extension = $ExtArray[$key];
-         $phones->save();
-     }
+            $phones = new Phone();
+            $phones->idCompany = $company->id;
+            $phones->phone = $value;
+            $phones->extension = $ExtArray[$key];
+            $phones->save();
+        }
 
      #flash('Empresa creada Correctamente', 'success')->important();
      #return redirect()->route('company.index');
- }
+    }
 
     /**
      * Display the specified resource.
