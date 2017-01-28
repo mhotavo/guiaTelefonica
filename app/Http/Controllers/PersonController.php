@@ -22,9 +22,9 @@ class PersonController extends Controller
     
     public function index()
     {
-        $persons = Person::orderBy('firstName', 'ASC')->paginate(20);
-        printf($persons);
-       # return view('admin.persons')->with('persons', $persons);
+        $persons = Person::orderBy('firstName', 'ASC')->paginate(2);
+        
+        return view('admin.persons')->with('persons', $persons);
     }
 
     /**
