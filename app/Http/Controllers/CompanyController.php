@@ -24,9 +24,9 @@ class CompanyController extends Controller
     {
        #$companies= Company::find(3);
        #$companies->category->name
-     $companies = Company::orderBy('name', 'ASC')->paginate(20);
-     return view('admin.companies')->with('companies', $companies);
- }
+       $companies = Company::orderBy('name', 'ASC')->paginate(20);
+       return view('admin.companies')->with('companies', $companies);
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -92,8 +92,10 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $company= Company::find($id);
-        $phones = Phone::find('idCompany', '=', $id);
-        return view('admin.editCompany')->with('company', $company);
+        $phones = Phone::PhoneCompany($id)->get();
+        return view('admin.editCompany')
+        ->with('company', $company)
+        ->with('phones', $phones);
     }
 
     /**
@@ -105,8 +107,37 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'name' => 'required|max:30',
+        'address' => 'required|max:50',
+        'idCity' => 'required',
+        'email' => 'required',
+        'phones' => 'required',
+        'category' => 'required',
+        'idCategory' => 'required',
+        ]);
+      $source = Company::find($id);
+      $source->fill($request->all()); //fill -> llenar
+      $source->save();
+
+      $phonesDel = Phone::PhoneCompany($id);
+      $phonesDel->delete();
+      $phonesArray= $request->input('phones'); 
+      $ExtArray= $request->input('extensions'); 
+
+      foreach ($phonesArray as $key => $value) {
+
+        if ($value!="") {
+            $phones = new Phone();
+            $phones->idCompany = $id;
+            $phones->phone = $value;
+            $phones->extension = $ExtArray[$key];
+            $phones->save();
+        }
     }
+    flash('<strong>' . $request->input('name') . '</strong> modificada correctamente.', 'success')->important();
+    return redirect()->route('company.index');
+}
 
     /**
      * Remove the specified resource from storage.

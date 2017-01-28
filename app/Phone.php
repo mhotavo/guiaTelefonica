@@ -31,6 +31,19 @@ class Phone extends Model
 		return $this->belongsTo('App\Company','id');
 	}
 
+	public function scopePhoneCompany($query, $id)
+	{
+		return $query->where('idCompany', '=', "$id");
+	}
 
+	public function scopePhonePerson($query, $id)
+	{
+		return $query->where('idPerson', '=', "$id");
+	}
+
+	public function scopePhoneBranch($query, $id)
+	{
+		return $query->where('idBranch', '=', "$id");
+	}
 
 }

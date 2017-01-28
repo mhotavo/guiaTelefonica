@@ -6,8 +6,9 @@
     Editar Empresa
 </div>
 <div class="panel-body">
-    <form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}">
+<form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}">
         {{ csrf_field() }}               
+        <input type="hidden" name="_method" value="PUT">
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">
                 Nombre Empresa 
@@ -71,7 +72,7 @@
             Telefonos:
         </label>
         <div class="col-xs-6 col-sm-6">
-            <input type="text" class="form-control "  required name="phones[]" maxlength="10" placeholder="Teléfono ó Celular 1"/>
+            <input type="text" class="form-control "   name="phones[]" maxlength="10" placeholder="Teléfono ó Celular 1"/>
         </div>
         <div class="col-xs-3 col-sm-3">
             <input type="text" class="form-control "  maxlength="4" name="extensions[]" placeholder="Ext. "/>
@@ -83,7 +84,17 @@
     </div>
     <div class="phones">
         @foreach ($phones as $phone)
-        <p>This is user {{ $phone->id }}</p>
+        <div class="form-group ">
+            <label class="control-label  col-xs-12 col-sm-2" for="phones">
+            </label>
+            <div class="col-xs-6 col-sm-6">
+                <input type="text" class="form-control "  required name="phones[]" maxlength="10" value="{{ $phone->phone}}"/>
+            </div>
+            <div class="col-xs-3 col-sm-3">
+                <input type="text" class="form-control "  maxlength="4" name="extensions[]" value="{{$phone->extension}}"/>
+            </div>
+            <a class="btn_del col-xs-2 col-sm-1"><i class=" fa fa-times-circle fa-2x " style="color:red" aria-hidden="true"></i></a>
+        </div>
         @endforeach
 
     </div>
