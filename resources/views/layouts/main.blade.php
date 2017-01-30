@@ -39,43 +39,47 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                @yield('content')
+                <div class="panel-heading">
+                    @yield('tittlePanel', 'Titulo') 
+                </div>
+                <div class="panel-body">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-<script>
-  var pathCity = "{{ route('SearchCities') }}";
-  $('#city').typeahead({
-    source:  function (query, process) {
-        return $.get(pathCity, { query: query }, function (data) {
-            return process(data);
-        });
-    },
-    updater: function(item) {
-        $('#idCity').val(item.id);
-        return item;
-    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <script>
+      var pathCity = "{{ route('SearchCities') }}";
+      $('#city').typeahead({
+        source:  function (query, process) {
+            return $.get(pathCity, { query: query }, function (data) {
+                return process(data);
+            });
+        },
+        updater: function(item) {
+            $('#idCity').val(item.id);
+            return item;
+        }
 
-});
+    });
 
-  var pathCategory = "{{ route('SearchCategories') }}";
-  $('#search, #category').typeahead({
-    source:  function (query, process) {
-        return $.get(pathCategory, { query: query }, function (data) {
-            return process(data);
-        });
-    },
-    updater: function(item) {
-        $('#idCategory').val(item.id);
-        return item;
-    }
-});
+      var pathCategory = "{{ route('SearchCategories') }}";
+      $('#search, #category').typeahead({
+        source:  function (query, process) {
+            return $.get(pathCategory, { query: query }, function (data) {
+                return process(data);
+            });
+        },
+        updater: function(item) {
+            $('#idCategory').val(item.id);
+            return item;
+        }
+    });
 
-  if ( $(".phones") ) {
+      if ( $(".phones") ) {
             var max_fields      = 4; //maximum input boxes allowed
             var add_button      = $(".btn_add"); //Add button ID
             var x = 1; //initlal text box count

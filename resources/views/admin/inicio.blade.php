@@ -1,8 +1,6 @@
 @extends('layouts.main')
+@section('tittle', 'Inicio')
+@section('tittlePanel',  'Inicio' )
 @section('content')
-    <div class="panel-heading">Dashboard</div>
-
-    <div class="panel-body">
-        Bienvenido!
-    </div>
+Bienvenido!
 @endsection
