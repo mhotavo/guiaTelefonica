@@ -22,11 +22,9 @@ class CompanyController extends Controller
 
     public function index()
     {
-       #$companies= Company::find(3);
-       #$companies->category->name
-       $companies = Company::orderBy('name', 'ASC')->paginate(20);
-       return view('admin.companies')->with('companies', $companies);
-   }
+     $companies = Company::orderBy('name', 'ASC')->paginate(20);
+     return view('admin.companies')->with('companies', $companies);
+ }
 
     /**
      * Show the form for creating a new resource.

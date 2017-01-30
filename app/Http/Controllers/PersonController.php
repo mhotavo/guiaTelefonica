@@ -46,7 +46,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-       $this->validate($request, [
+     $this->validate($request, [
         'firstName' => 'required|max:30',
         'secondName' => 'max:30',
         'surname' => 'required|max:30',
@@ -58,12 +58,12 @@ class PersonController extends Controller
         'email' => 'email|unique:persons',
         'phones' => 'required',
         ]);
-       $person = new Person($request->all());
-       $person->save();
-       $phonesArray= $request->input('phones'); 
-       $ExtArray= $request->input('extensions'); 
+     $person = new Person($request->all());
+     $person->save();
+     $phonesArray= $request->input('phones'); 
+     $ExtArray= $request->input('extensions'); 
 
-       foreach ($phonesArray as $key => $value) {
+     foreach ($phonesArray as $key => $value) {
         $phones = new Phone();
         $phones->idPerson = $person->id;
         $phones->phone = $value;
@@ -96,7 +96,11 @@ class PersonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $person= Person::find($id);
+        $phones = Phone::PhonePerson($id)->get();
+        return view('admin.editPerson')
+        ->with('person', $person)
+        ->with('phones', $phones);
     }
 
     /**
@@ -108,9 +112,41 @@ class PersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $this->validate($request, [
+            'firstName' => 'required|max:30',
+            'secondName' => 'max:30',
+            'surname' => 'required|max:30',
+            'secondSurname' => 'max:30',
+            'birthday' => 'required',
+            'address' => 'required|max:50',
+            'city' => 'required',
+            'idCity' => 'required',
+            'profession' => 'max:50',
+            'email' => 'email',
+            'phones' => 'required',
+            ]);
+         $source = Person::find($id);
+         $source->fill($request->all()); //fill -> llenar
+         $source->save();
 
+         $phonesDel = Phone::PhonePerson($id);
+         $phonesDel->delete();
+         $phonesArray= $request->input('phones'); 
+         $ExtArray= $request->input('extensions'); 
+
+      foreach ($phonesArray as $key => $value) {
+
+        if ($value!="") {
+            $phones = new Phone();
+            $phones->idPerson = $id;
+            $phones->phone = $value;
+            $phones->extension = $ExtArray[$key];
+            $phones->save();
+        }
+    }
+    flash('<strong>' . $request->input('firstName') . '- </strong>  Cambios guardados correctamente.', 'success')->important();
+    return redirect()->route('person.index');
+}
     /**
      * Remove the specified resource from storage.
      *
