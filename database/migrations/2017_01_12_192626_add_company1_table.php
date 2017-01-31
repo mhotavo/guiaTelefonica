@@ -18,7 +18,7 @@ class AddCompany1Table extends Migration
         $table->increments('id');
         $table->string('name');
         $table->integer('idCategory')->unsigned();
-        $table->string('description');
+        $table->text('description');
         $table->string('address');
         $table->integer('idCity')->unsigned();
         $table->string('email')->unique();
