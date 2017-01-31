@@ -11,6 +11,6 @@ class PhonesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Phone::class,2000)->create();
+        factory(App\Phone::class,1000)->create();
     }
 }

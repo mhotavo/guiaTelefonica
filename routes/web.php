@@ -10,23 +10,20 @@
 | to using a Closure or controller method. Build something great!
 |
  */
+#ROUTES FRONTEND
 
-Route::get('/', function () {
-	return view('home');
-});
-
-
+Route::get('/', array('as' => 'index', 'uses' => 'FrontController@index'));
 Route::post('search', array('as' => 'search', 'uses' => 'SearchController@search'));
 Route::get('SearchCities', array('as' => 'SearchCities', 'uses' => 'SearchController@SearchCities'));
 Route::get('SearchCategories', array('as' => 'SearchCategories', 'uses' => 'SearchController@SearchCategories'));
 
 
+
+# ROUTES ADMIN PANEL
  // Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm' );
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
-
-
 
 Route::group(['prefix'=>'admin'], function(){
 
