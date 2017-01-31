@@ -23,6 +23,7 @@ class AddCompany1Table extends Migration
         $table->integer('idCity')->unsigned();
         $table->string('email')->unique();
         $table->string('website')->nullable();
+        $table->string('logo')->nullable();
         $table->string('facebook')->nullable();
         $table->string('twitter')->nullable();
         $table->string('instagram')->nullable();

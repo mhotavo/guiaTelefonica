@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>
-     @yield('tittle', 'Buscar') 
- </title>
- <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
- <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
- <script>
+       @yield('tittle', 'Buscar') 
+   </title>
+   <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
+   <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
+   <link rel="stylesheet" href="{{ asset('js/trumbowyg/ui/trumbowyg.min.css') }}">
+   <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
         ]); ?>
@@ -51,35 +52,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <script src="{{ asset('js/trumbowyg/trumbowyg.min.js') }}"></script>
+    <script src="{{ asset('js/trumbowyg/langs/es.min.js') }}"></script>
+
+
+
     <script>
-      var pathCity = "{{ route('SearchCities') }}";
-      $('#city').typeahead({
-        source:  function (query, process) {
-            return $.get(pathCity, { query: query }, function (data) {
-                return process(data);
-            });
-        },
-        updater: function(item) {
-            $('#idCity').val(item.id);
-            return item;
-        }
+        $('.trumbowyg').trumbowyg({
+            lang: 'es',
+            btns: [
+            'btnGrp-semantic',
+            'btnGrp-justify',
+            'btnGrp-lists',
+            ['fullscreen']
+            ]
+        });
 
-    });
+        var pathCity = "{{ route('SearchCities') }}";
+        $('#city').typeahead({
+            source:  function (query, process) {
+                return $.get(pathCity, { query: query }, function (data) {
+                    return process(data);
+                });
+            },
+            updater: function(item) {
+                $('#idCity').val(item.id);
+                return item;
+            }
 
-      var pathCategory = "{{ route('SearchCategories') }}";
-      $('#search, #category').typeahead({
-        source:  function (query, process) {
-            return $.get(pathCategory, { query: query }, function (data) {
-                return process(data);
-            });
-        },
-        updater: function(item) {
-            $('#idCategory').val(item.id);
-            return item;
-        }
-    });
+        });
 
-      if ( $(".phones") ) {
+        var pathCategory = "{{ route('SearchCategories') }}";
+        $('#search, #category').typeahead({
+            source:  function (query, process) {
+                return $.get(pathCategory, { query: query }, function (data) {
+                    return process(data);
+                });
+            },
+            updater: function(item) {
+                $('#idCategory').val(item.id);
+                return item;
+            }
+        });
+
+        if ( $(".phones") ) {
             var max_fields      = 4; //maximum input boxes allowed
             var add_button      = $(".btn_add"); //Add button ID
             var x = 1; //initlal text box count

@@ -2,7 +2,7 @@
 @section('tittle', 'Registrar Empresa')
 @section('tittlePanel', 'Registrar Empresa')
 @section('content')
-<form class="form-horizontal" role="form" method="POST" action="{{  route('company.store')  }}">
+<form class="form-horizontal" role="form" method="POST" action="{{  route('company.store')  }}" enctype="multipart/form-data">
     {{ csrf_field() }}               
     <div class="form-group">
         <label class="control-label col-sm-2" for="name">
@@ -59,10 +59,18 @@
             Descripción:
         </label>
         <div class="col-sm-10">
-          <textarea name="description" id="description" cols="30" class="form-control" rows="6">Hola</textarea>
+          <textarea name="description" id="description" cols="30" class="form-control trumbowyg" rows="6">Hola</textarea>
       </div>
   </div>
-  <div class="form-group ">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="website">
+        Logo:
+    </label>
+    <div class="col-sm-10">
+        <input type="file" class="form-control" name="logo" placeholder=""/>
+    </div>
+</div>
+<div class="form-group ">
     <label class="control-label  col-xs-12 col-sm-2" for="phones">
         Telefonos:
     </label>
@@ -97,7 +105,6 @@
  $("input[name$='idCity']").val("73001000");
  $("input[name$='phones[]']").val("3224567898");
  $("input[name$='email']").val("mercacentro@gmail.com");
-
 
 </script>
 @endsection

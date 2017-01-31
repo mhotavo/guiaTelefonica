@@ -33,6 +33,9 @@ class Company extends Model
 	public function scopeName($query, $name)
 	{
 		return $query->where('name', 'LIKE', "%$name%")
-		->orWhere('description', 'LIKE',"%$name%");
+		->orWhere('description', 'LIKE',"%$name%")
+		->orWhere('address', 'LIKE',"%$name%")
+		->orWhere('email', 'LIKE',"%$name%")
+		->orWhere('website', 'LIKE',"%$name%");
 	}
 }

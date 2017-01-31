@@ -18,9 +18,9 @@ class AddPhonesTable extends Migration
             $table->integer('idCompany')->unsigned()->nullable();
             $table->integer('idPerson')->unsigned()->nullable();
             $table->integer('idBranch')->unsigned()->nullable();
-            $table->integer('indicator')->nullable()->default('57');             
+            $table->string('indicator')->nullable()->default('57');             
             $table->string('phone');
-            $table->integer('extension')->nullable();
+            $table->string('extension')->nullable();
             $table->char('whatsapp', 1)->nullable();
 
             $table->foreign('idCompany')->references('id')->on('companies')->onDelete('cascade');

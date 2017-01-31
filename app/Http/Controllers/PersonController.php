@@ -20,10 +20,10 @@ class PersonController extends Controller
     }
 
     
-    public function index()
+    public function index(Request $request)
     {
-        $persons = Person::orderBy('firstName', 'ASC')->paginate(2);
-        
+       #$persons = Person::orderBy('firstName', 'ASC')->paginate(2);
+        $persons = Person::Name($request->input('name'))->orderBy('firstName', 'ASC')->paginate(20);
         return view('admin.persons')->with('persons', $persons);
     }
 
@@ -46,7 +46,7 @@ class PersonController extends Controller
     public function store(Request $request)
     {
 
-     $this->validate($request, [
+       $this->validate($request, [
         'firstName' => 'required|max:30',
         'secondName' => 'max:30',
         'surname' => 'required|max:30',
@@ -58,12 +58,12 @@ class PersonController extends Controller
         'email' => 'email|unique:persons',
         'phones' => 'required',
         ]);
-     $person = new Person($request->all());
-     $person->save();
-     $phonesArray= $request->input('phones'); 
-     $ExtArray= $request->input('extensions'); 
+       $person = new Person($request->all());
+       $person->save();
+       $phonesArray= $request->input('phones'); 
+       $ExtArray= $request->input('extensions'); 
 
-     foreach ($phonesArray as $key => $value) {
+       foreach ($phonesArray as $key => $value) {
         $phones = new Phone();
         $phones->idPerson = $person->id;
         $phones->phone = $value;
@@ -125,7 +125,7 @@ class PersonController extends Controller
             'email' => 'email',
             'phones' => 'required',
             ]);
-         $source = Person::find($id);
+        $source = Person::find($id);
          $source->fill($request->all()); //fill -> llenar
          $source->save();
 
@@ -134,19 +134,19 @@ class PersonController extends Controller
          $phonesArray= $request->input('phones'); 
          $ExtArray= $request->input('extensions'); 
 
-      foreach ($phonesArray as $key => $value) {
+         foreach ($phonesArray as $key => $value) {
 
-        if ($value!="") {
-            $phones = new Phone();
-            $phones->idPerson = $id;
-            $phones->phone = $value;
-            $phones->extension = $ExtArray[$key];
-            $phones->save();
+            if ($value!="") {
+                $phones = new Phone();
+                $phones->idPerson = $id;
+                $phones->phone = $value;
+                $phones->extension = $ExtArray[$key];
+                $phones->save();
+            }
         }
+        flash('<strong>' . $request->input('firstName') . '- </strong>  Cambios guardados correctamente.', 'success')->important();
+        return redirect()->route('person.index');
     }
-    flash('<strong>' . $request->input('firstName') . '- </strong>  Cambios guardados correctamente.', 'success')->important();
-    return redirect()->route('person.index');
-}
     /**
      * Remove the specified resource from storage.
      *

@@ -32,6 +32,9 @@ class Person extends Model
 		->orWhere(DB::raw("CONCAT(firstName, ' ', secondName)"), 'LIKE',"%$name%")
 		->orWhere(DB::raw("CONCAT(firstName, ' ', surname)"), 'LIKE',"%$name%")
 		->orWhere(DB::raw("CONCAT(secondName, ' ', surname)"), 'LIKE',"%$name%")
-		->orWhere(DB::raw("CONCAT(surname, ' ', secondSurname)"), 'LIKE',"%$name%");
+		->orWhere(DB::raw("CONCAT(surname, ' ', secondSurname)"), 'LIKE',"%$name%")
+		->orWhere('address', 'LIKE',"%$name%")
+		->orWhere('email', 'LIKE',"%$name%")
+		->orWhere('profession', 'LIKE',"%$name%");
 	}
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Phone;
+use Storage;
 
 class CompanyController extends Controller
 {
@@ -20,9 +21,10 @@ class CompanyController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-     $companies = Company::orderBy('name', 'ASC')->paginate(20);
+     $companies =Company::Name($request->input('name'))->orderBy('name', 'ASC')->paginate(20);
+       # $companies = Company::orderBy('name', 'ASC')->paginate(20);
      return view('admin.companies')->with('companies', $companies);
  }
 
@@ -44,6 +46,9 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $this->validate($request, [
             'name' => 'required|max:30',
             'address' => 'required|max:50',
@@ -53,21 +58,26 @@ class CompanyController extends Controller
             'category' => 'required',
             'idCategory' => 'required',
             ]);
+        #Save Logo
+        $logo=$request->file('logo');
+        $file_route= time().'_'.$logo->getClientOriginalName();
+        Storage::disk('imgLogos')->put($file_route, file_get_contents($logo->getRealPath() ) );
+
         $company = new Company($request->all());
+        $company->logo =$file_route;
         $company->save();
         $phonesArray= $request->input('phones'); 
         $ExtArray= $request->input('extensions'); 
-
         foreach ($phonesArray as $key => $value) {
             $phones = new Phone();
             $phones->idCompany = $company->id;
             $phones->phone = $value;
             $phones->extension = $ExtArray[$key];
             $phones->save();
-        }
 
-        flash('Empresa creada Correctamente', 'success')->important();
-        return redirect()->route('company.index');
+            flash('Se ha creado empresa <strong>' .$company->name.' </strong> correctamente.' , 'success')->important();
+            return redirect()->route('company.index');
+        }
     }
 
     /**

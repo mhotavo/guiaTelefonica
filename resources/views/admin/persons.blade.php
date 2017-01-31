@@ -2,6 +2,14 @@
 @section('tittle', 'Listado Personas')
 @section('tittlePanel', 'Listado Personas')
 @section('content')
+<!--seach -->
+<form class="navbar-form pull-right" role="search" method="GET" action="{{  route('person.index')  }}">
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="Buscar" aria-describedby="search" name="name">
+		<button  id="search" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+	</div>
+</form>
+<!-- End seach -->
 <table class="table table-striped">
 	<a href="{{route('person.create')}}" class="btn btn-default ">Registrar Empresa </a>
 	<thead>

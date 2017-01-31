@@ -2,7 +2,10 @@
 @section('tittle', 'Editar Empresa')
 @section('tittlePanel',  $company->name )
 @section('content')
-<form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}">
+<div class="thumbnail">
+    <img src="{{ asset('imgLogos/'.$company->logo) }}" class="img-responsive" alt="{{ $company->name }}"  width="304" >
+</div>
+<form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}" enctype="multipart/form-data">
     {{ csrf_field() }}               
     <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
