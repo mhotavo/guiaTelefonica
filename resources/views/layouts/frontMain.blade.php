@@ -59,38 +59,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script src="{{ asset('js/trumbowyg/trumbowyg.min.js') }}"></script>
 <script src="{{ asset('js/trumbowyg/langs/es.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
-
-
-<script>
-    var pathCity = "{{ route('SearchCities') }}";
-    $('#city').typeahead({
-        source:  function (query, process) {
-            return $.get(pathCity, { query: query }, function (data) {
-                return process(data);
-            });
-        },
-        updater: function(item) {
-            $('#idCity').val(item.id);
-            return item;
-        }
-
-    });
-
-    var pathCategory = "{{ route('SearchCategories') }}";
-    $('#search, #category').typeahead({
-        source:  function (query, process) {
-            return $.get(pathCategory, { query: query }, function (data) {
-                return process(data);
-            });
-        },
-        updater: function(item) {
-            $('#idCategory').val(item.id);
-            return item;
-        }
-    });
-
-</script>
-@yield('script')
 </body>
 </html>

@@ -13,9 +13,9 @@
 #ROUTES FRONTEND
 
 Route::get('/', array('as' => 'index', 'uses' => 'FrontController@index'));
-Route::post('search', array('as' => 'search', 'uses' => 'SearchController@search'));
-Route::get('SearchCities', array('as' => 'SearchCities', 'uses' => 'SearchController@SearchCities'));
-Route::get('SearchCategories', array('as' => 'SearchCategories', 'uses' => 'SearchController@SearchCategories'));
+Route::post('search', array('as' => 'search', 'uses' => 'FrontController@search'));
+Route::get('SearchCities', array('as' => 'SearchCities', 'uses' => 'FrontController@SearchCities'));
+Route::get('SearchCategories', array('as' => 'SearchCategories', 'uses' => 'FrontController@SearchCategories'));
 
 
 

@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
@@ -46,9 +46,10 @@ class SearchController extends Controller
        if ($company->idCity==$city) {
          return true;
        }
-     });*/
+     }); 
      return view('result')->with('companies', $companies);
-     # printf(($companies));
+     # printf(($companies)); 
+    
    }
 
 

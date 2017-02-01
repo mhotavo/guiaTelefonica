@@ -1,11 +1,11 @@
 @extends('layouts.frontMain')
-@section('tittle', 'Tú Guía')
+@section('tittle', 'Resultados')
 @section('content')
 @foreach($companies as $company)
 <div class="row panel panel-success">
- <div class="panel-heading">{{ $company->name }}</div>
- <div class="panel-body">
-     <div class="col-md-4 col-xs-6">
+   <div class="panel-heading">{{ $company->name }}</div>
+   <div class="panel-body">
+       <div class="col-md-4 col-xs-6">
         <a href="">
             <img class="img-responsive" src="{{ asset('imgLogos/'. $company->logo)  }}" alt="">
         </a>
@@ -17,11 +17,11 @@
                 <td>{{ $company->address }}</td>
             </tr>
             <tr>
-             <td class="text-primary text-left col-md-4"><b>Web</b></td>
-             <td><a href="{{ $company->website }}">www.{{ $company->name }}.com</a> </td>
+               <td class="text-primary text-left col-md-4"><b>Web</b></td>
+               <td><a href="{{ $company->website }}">www.{{ $company->name }}.com</a> </td>
 
-         </tr>
-         <tr>
+           </tr>
+           <tr>
             <td class="text-primary text-left col-md-4"><b>Horario </b></td>
             <td>Lunes a Viernes 08:00AM a 06:00pm</td>
         </tr>
@@ -45,6 +45,6 @@
 </div>
 </div>
 @endforeach
-{!! $companies->render()  !!}
+
 
 @endsection
