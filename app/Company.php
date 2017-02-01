@@ -27,7 +27,7 @@ class Company extends Model
 
 	public function phones()
 	{
-		return $this->hasMany('App\Phone');
+		return $this->hasMany('App\Phone', 'idCompany');
 	}
 
 	public function scopeName($query, $name)
@@ -37,5 +37,10 @@ class Company extends Model
 		->orWhere('address', 'LIKE',"%$name%")
 		->orWhere('email', 'LIKE',"%$name%")
 		->orWhere('website', 'LIKE',"%$name%");
+	}
+
+	public function scopeByCategory($query, $name)
+	{
+		return $query->where('idCategory', '=', "$name");
 	}
 }

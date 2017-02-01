@@ -1,6 +1,5 @@
-@extends('layouts.main')
+@extends('layouts.frontMain')
 @section('tittle', 'Tú Guía')
-@section('tittlePanel', 'Directorio Teléfonico Actualizado '. date("Y"))
 @section('content')
 <div class="row">
     <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
