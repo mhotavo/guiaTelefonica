@@ -11,6 +11,7 @@
    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
    <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
    <link rel="stylesheet" href="{{ asset('js/trumbowyg/ui/trumbowyg.min.css') }}">
+<!--   <link rel="stylesheet" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> -->
    <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
@@ -40,7 +41,7 @@
         @include('flash::message')
         <div class="row">
          <div class="col-sm-2 sidenav hidden-xs">
-           
+
          </div>
          <div class="col-sm-8 text-left"> 
            @yield('content')
@@ -57,9 +58,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+ <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <script src="{{ asset('js/trumbowyg/trumbowyg.min.js') }}"></script>
 <script src="{{ asset('js/trumbowyg/langs/es.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-
+@yield('script')
 </body>
 </html>
