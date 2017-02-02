@@ -25,7 +25,7 @@ class AddPhonesTable extends Migration
 
             $table->foreign('idCompany')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('idPerson')->references('id')->on('persons')->onDelete('cascade');
-            $table->foreign('idBranch')->references('id')->on('branchoffices')->onDelete('cascade');
+            $table->foreign('idBranch')->references('id')->on('branchOffices')->onDelete('cascade');
             $table->timestamps();
         });
     }
