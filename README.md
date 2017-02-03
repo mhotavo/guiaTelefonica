@@ -58,6 +58,7 @@
 		$ 	http://itsolutionstuff.com/post/laravel-5-autocomplete-using-bootstrap-typeahead-js-example-with-demoexample.html
 		$ 	https://github.com/bassjobsen/Bootstrap-3-Typeahead
 		$   https://alex-d.github.io/Trumbowyg/
+		$   www.pexels.com
 
 
 
