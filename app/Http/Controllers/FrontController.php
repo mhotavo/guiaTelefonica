@@ -13,7 +13,7 @@ use App\Company;
 class FrontController extends Controller
 {
 	public function index(){
-		return view('home');
+		return view('front.index');
 	}
 
 	public function search(Request $request)
