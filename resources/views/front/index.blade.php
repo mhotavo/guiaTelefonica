@@ -22,6 +22,7 @@
 
   <!-- Theme CSS -->
   <link rel="stylesheet" href=" {{ asset('css/agency.min.css') }} ">
+  <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +52,7 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a class="page-scroll" href="#services">Servicios</a>
                         </li>
                         <li>
@@ -59,12 +60,13 @@
                         </li>
                         <li>
                             <a class="page-scroll" href="#about">About</a>
+                        </li>-->
+                        
+                        <li>
+                            <a class="page-scroll" href="#contact">Registrate</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#team">Team</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#team">Nuestro Servicio</a>
                         </li>
                     </ul>
                 </div>
@@ -77,19 +79,19 @@
         <header>
             <div class="container">
                 <div class="intro-text">
-                   <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
-                   <div class="row">
-                     <div class="col-md-5 col-md-offset-2 form-group">
-                         <div class="input-group">
-                             <div class="input-group-addon">
-                             <i class="fa fa-search" aria-hidden="true"></i>
-                          </div>
-                          <input type="text" class="form-control" name="" placeholder="¿Qué/Quién buscas?">
-                      </div>
-                  </div>
-                  <div class="col-md-3 form-group">
+                 <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
+                 <div class="row">
+                   <div class="col-md-5 col-md-offset-2 form-group">
+                       <div class="input-group">
+                           <div class="dark-primary-color input-group-addon">
+                               <i class="fa fa-search" aria-hidden="true"></i>
+                           </div>
+                           <input type="text" class="form-control" name="" placeholder="¿Qué/Quién buscas?">
+                       </div>
+                   </div>
+                   <div class="col-md-3 form-group">
                       <div class="input-group">
-                         <div class="input-group-addon">
+                       <div class="dark-primary-color input-group-addon" >
                           <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
                       <input type="text" class="form-control" name="" placeholder="¿Donde?">
@@ -100,16 +102,16 @@
               </div>
           </div>
           <div class="row">
-           <div class="col-md-12 form-group">
-            <label class="radio-inline"><input type="radio" name="optradio"> Personas</label>
-            <label class="radio-inline"><input type="radio" name="optradio"> Empresas</label>
+             <div class="col-md-12 form-group">
+                <label class="radio-inline"><input type="radio" name="optradio"> Personas</label>
+                <label class="radio-inline"><input type="radio" name="optradio"> Empresas</label>
+            </div>
         </div>
+
+        <div class="intro-heading"><!--It's Nice To Meet You--></div>
+
+        <!-- <a href="#contact" class="page-scroll btn btn-xl">Buscar</a>-->
     </div>
-
-    <div class="intro-heading"><!--It's Nice To Meet You--></div>
-
-    <!-- <a href="#contact" class="page-scroll btn btn-xl">Buscar</a>-->
-</div>
 </div>
 </header>
 
