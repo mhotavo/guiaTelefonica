@@ -24,7 +24,7 @@ class PersonController extends Controller
     {
        #$persons = Person::orderBy('firstName', 'ASC')->paginate(2);
         $persons = Person::Name($request->input('name'))->orderBy('firstName', 'ASC')->paginate(20);
-        return view('admin.persons')->with('persons', $persons);
+        return view('admin.person.index')->with('persons', $persons);
     }
 
     /**
@@ -34,7 +34,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-      return view('admin.createPerson');
+      return view('admin.person.create');
   }
 
     /**

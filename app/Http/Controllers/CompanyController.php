@@ -25,7 +25,7 @@ class CompanyController extends Controller
     {
      $companies =Company::Name($request->input('name'))->orderBy('name', 'ASC')->paginate(20);
        # $companies = Company::orderBy('name', 'ASC')->paginate(20);
-     return view('admin.companies')->with('companies', $companies);
+     return view('admin.company.index')->with('companies', $companies);
  }
 
     /**
@@ -35,7 +35,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('admin.createCompany');
+        return view('admin.company.create');
     }
 
     /**
@@ -101,7 +101,7 @@ class CompanyController extends Controller
     {
         $company= Company::find($id);
         $phones = Phone::PhoneCompany($id)->get();
-        return view('admin.editCompany')
+        return view('admin.company.edit')
         ->with('company', $company)
         ->with('phones', $phones);
     }

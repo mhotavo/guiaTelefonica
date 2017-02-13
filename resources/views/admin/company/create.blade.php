@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('tittle', 'Registrar Empresa')
 @section('tittlePanel', 'Registrar Empresa')
 @section('content')

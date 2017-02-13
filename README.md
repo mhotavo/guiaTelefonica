@@ -59,7 +59,8 @@
 		$ 	https://github.com/bassjobsen/Bootstrap-3-Typeahead
 		$   https://alex-d.github.io/Trumbowyg/
 		$   www.pexels.com
-
+		$   http://www.flaticon.com/free-icon/smartphone-with-glasses_21513#term=telephone&page=2&position=19 
+		$ 	https://startbootstrap.com/template-overviews/agency/
 
 
 ## INSTALAR PROYECTO

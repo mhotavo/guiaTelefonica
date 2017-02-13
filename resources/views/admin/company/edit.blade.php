@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('tittle', 'Editar Empresa')
 @section('tittlePanel',  $company->name )
 @section('content')

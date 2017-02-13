@@ -20,7 +20,7 @@
   </script>
 </head>
 <body>
-  @include('layouts/nav')
+  @include('admin.layouts/nav')
 
   <div class="container">
     @if (count($errors)>

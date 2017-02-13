@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('tittle', 'Registrar Persona')
 @section('tittlePanel', 'Registrar Persona')
 @section('content')
