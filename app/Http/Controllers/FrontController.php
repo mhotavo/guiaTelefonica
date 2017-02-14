@@ -50,7 +50,7 @@ class FrontController extends Controller
 					return true;
 				}
 			}); 
-			return view('result')->with('companies', $companies);
+			return view('front.result')->with('companies', $companies);
 #			printf(($companies)); 
 
 		} else {

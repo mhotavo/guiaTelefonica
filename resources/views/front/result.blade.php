@@ -1,4 +1,4 @@
-@extends('layouts.frontMain')
+@extends('admin.layouts.main')
 @section('tittle', 'Resultados')
 @section('content')
 <!-- -->
@@ -17,7 +17,7 @@
                    <div class="panel-body">
                        <div class="col-md-4 col-xs-12">
                         <a href="">
-                            <img class="img-responsive thumbnail" src="{{ asset('imgLogos/'. $company->logo)  }}" alt="">
+                            <img class="img-responsive thumbnail" src="{{ asset('img/logos/'. $company->logo)  }}" alt="">
                         </a>
                     </div>
                     <div class="col-md-8  col-xs-">

@@ -60,7 +60,6 @@
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
   <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-  
   <script src="{{ asset('plugins/dataTables/js/dataTables.bootstrap.min.js') }}"></script>
   <script src="{{ asset('plugins/trumbowyg/trumbowyg.min.js') }}"></script>
   <script src="{{ asset('plugins/trumbowyg/langs/es.min.js') }}"></script>

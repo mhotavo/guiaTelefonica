@@ -1,112 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="csrf-token" content="{{ csrf_token() }}"/>
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="{{ asset('img/icon.png') }}">
+@include('front.layouts/head')
+<body id="page-top" class="index">
 
-
-  <title> @yield('tittle', 'Tú Guía') </title>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
-
-  <!-- Custom Fonts -->
-  <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-  <!-- Theme CSS -->
-  <link rel="stylesheet" href=" {{ asset('css/agency.min.css') }} ">
-  <link rel="stylesheet" href=" {{ asset('css/app.css') }} ">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
-        <![endif]-->
-
-    </head>
-
-    <body id="page-top" class="index">
-
-        <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Tú Guía</a>
-                     <img src="{{ asset('img/logo.png') }}" alt="Tu Guia" width="40">
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <!--<li>
-                            <a class="page-scroll" href="#services">Servicios</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#about">About</a>
-                        </li>-->
-                        
-                        <li>
-                            <a class="page-scroll" href="#contact">Registrate Gratis</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#team">Nuestro Servicio</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Tú Guía</a>
+                <img src="{{ asset('img/logo.png') }}" alt="Tu Guia" width="40">
             </div>
-            <!-- /.container-fluid -->
-        </nav>
 
-        <!-- Header -->
-        <header>
-            <div class="container">
-                <form class="" role="search" method="GET" action="{{  route('company.index')  }}">
-                    <div class="intro-text">
-                       <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
-                       <div class="row">
-                         <div class="col-md-5 col-md-offset-2 form-group">
-                             <div class="input-group">
-                                 <div class="dark-primary-color input-group-addon">
-                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                 </div>
-                                 <input type="text" class="form-control" name="" placeholder="¿Qué/Quién buscas?">
-                             </div>
-                         </div>
-                         <div class="col-md-3 form-group">
-                          <div class="input-group">
-                             <div class="dark-primary-color input-group-addon" >
-                              <i class="fa fa-map-marker" aria-hidden="true"></i>
-                          </div>
-                          <input type="text" class="form-control" name="" placeholder="¿Donde?">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>>
+                    <li>
+                        <a class="page-scroll" href="#contact">Registrase Gratis</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Nuestro Servicio</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <form class="" role="search" method="POST" action="{{  route('search')  }}">
+                {{ csrf_field() }}
+                <div class="intro-text">
+                 <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
+                 <div class="row">
+                   <div class="col-md-5 col-md-offset-2 form-group">
+                       <div class="input-group">
+                           <div class="dark-primary-color input-group-addon">
+                               <i class="fa fa-search" aria-hidden="true"></i>
+                           </div>
+                           <input type="text" class="form-control" name="search" id="search"  placeholder="¿Qué/Quién buscas?">
+                       </div>
+                   </div>
+                   <div class="col-md-3 form-group">
+                      <div class="input-group">
+                       <div class="dark-primary-color input-group-addon" >
+                          <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
-                  </div>
-                  <div class="col-md-3 form-group">
-
+                      <input type="text" class="form-control" name="city" id="city" placeholder="¿Donde?">
+                      <input type="hidden" class="form-control" name="idCity" id="idCity" >
+                      <input type="hidden" class="form-control" name="idCategory" id="idCategory">
                   </div>
               </div>
-              <div class="row">
-               <div class="col-md-12 form-group">
+              <div class="col-md-3 form-group">
+
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="radio-inline"><input type="radio" name="type" checked value="c">Empresas</label>
+            <label class="radio-inline"><input type="radio" name="type" value="p">Personas</label>
+        </div>
+        <div class="row">
+         <div class="col-md-12 form-group">
                 <!--<label class="radio-inline"><input type="radio" name="optradio"> Personas</label>
                 <label class="radio-inline"><input type="radio" name="optradio"> Empresas</label> -->
                 <button type="submit" class="btn btn-info">Buscar</button>
@@ -158,7 +121,6 @@
         </div>
     </div>
 </section>
-
 <!-- Clients Aside -->
 <aside class="clients">
     <div class="container">
@@ -442,21 +404,7 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ asset('js/contact_me.js') }}"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="{{ asset('js/agency.min.js') }}"></script>
+    @include('front.layouts/footer')
 
 </body>
 
