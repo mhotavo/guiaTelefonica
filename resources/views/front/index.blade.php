@@ -37,8 +37,8 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <form class="" role="search" method="POST" action="{{  route('search')  }}">
-                {{ csrf_field() }}
+            <form class="" role="search" method="GET" action="{{  route('search')  }}">
+      
                 <div class="intro-text">
                    <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
                    <div class="row">

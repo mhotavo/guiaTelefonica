@@ -63,7 +63,7 @@
             Descripción:
         </label>
         <div class="col-sm-10">
-          <textarea name="description" id="description" cols="30" class="form-control" rows="6">{{ $company->description }}</textarea>
+          <textarea name="description" id="description" cols="30" class="form-control trumbowyg" rows="6">{{ $company->description }}</textarea>
       </div>
   </div>
   <div class="form-group ">

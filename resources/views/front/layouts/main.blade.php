@@ -9,7 +9,7 @@
    @yield('tittle', 'Buscar') 
  </title>
  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
- <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" media="all" />
+ <link href="{{ asset('css/app.css') }}"  />
  <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
  <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}">
  <script>
@@ -60,11 +60,11 @@
       </div>
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-  <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-  <script src="{{ asset('plugins/dataTables/js/dataTables.bootstrap.min.js') }}"></script>t>
+  <script src="{{ asset('js/bootstrap3-typeahead.min.js') }}"></script>
+  <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('plugins/dataTables/js/dataTables.bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
   @yield('script')
 </body>

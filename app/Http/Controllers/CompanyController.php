@@ -23,10 +23,10 @@ class CompanyController extends Controller
 
     public function index(Request $request)
     {
-     $companies =Company::Name($request->input('name'))->orderBy('name', 'ASC')->paginate(20);
-       # $companies = Company::orderBy('name', 'ASC')->paginate(20);
-     return view('admin.company.index')->with('companies', $companies);
- }
+     #$companies =Company::Name($request->input('name'))->orderBy('name', 'ASC')->paginate(20);
+        $companies = Company::orderBy('name', 'ASC')->get();
+        return view('admin.company.index')->with('companies', $companies);
+    }
 
     /**
      * Show the form for creating a new resource.

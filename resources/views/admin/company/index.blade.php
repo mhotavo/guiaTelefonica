@@ -2,7 +2,7 @@
 @section('tittle', 'Listado Empresas')
 @section('tittlePanel', 'Listado Empresas')
 @section('content')
-<!--seach -->
+<!--seach 
 <form class="navbar-form pull-right" role="search" method="GET" action="{{  route('company.index')  }}">
 	<div class="form-group">
 		<input type="text" class="form-control" placeholder="Buscar" aria-describedby="search" name="name">
@@ -10,9 +10,10 @@
 	</div>
 </form>
 
-<!-- End seach -->
-<table class="table table-striped">
-	<a href="{{route('company.create')}}" class="btn btn-default ">Registrar Empresa </a>
+ End seach -->
+ <a href="{{route('company.create')}}" class="btn btn-default ">Registrar Empresa </a>
+<table class="datatable table table-striped">
+
 	<thead>
 		<th>Nombre</th>
 		<th class="hidden-xs">Categoría</th>
@@ -39,13 +40,9 @@
 		@endforeach
 	</tbody>
 </table>
-{!! $companies->render()  !!}
-@endsection
+ @endsection
 @section('script')
 <script>
-	$('#delete').submit(function() {
-		var c = confirm("Estas seguro de eliminar esta empresa?");
-		return c;  
-	});
+	
 </script>
 @endsection
