@@ -30,13 +30,29 @@ class Company extends Model
 		return $this->hasMany('App\Phone', 'idCompany');
 	}
 
-	public function scopeName($query, $name)
+	public function scopeName($query, $name, $category, $city)
 	{
-		return $query->where('name', 'LIKE', "%$name%")
-		->orWhere('description', 'LIKE',"%$name%")
-		->orWhere('address', 'LIKE',"%$name%")
-		->orWhere('email', 'LIKE',"%$name%")
-		->orWhere('website', 'LIKE',"%$name%");
+		if ($category=="") {
+			return $query
+			->where('idCity', '=',"$city")
+			->where('name', 'LIKE', "%$name%")
+			->orWhere('description', 'LIKE',"%$name%")
+			->orWhere('address', 'LIKE',"%$name%")
+			->orWhere('email', 'LIKE',"%$name%")
+			->orWhere('website', 'LIKE',"%$name%"); 
+
+		} else {
+			return $query
+			->where('name', 'LIKE', "%$name%")
+			->orWhere('description', 'LIKE',"%$name%")
+			->orWhere('address', 'LIKE',"%$name%")
+			->orWhere('email', 'LIKE',"%$name%")
+			->orWhere('website', 'LIKE',"%$name%")
+			->orWhere('idCategory', '=',"$category")
+			->where('idCity', '=',"$city")
+			;
+		}
+		
 	}
 
 	public function scopeByCategory($query, $name)

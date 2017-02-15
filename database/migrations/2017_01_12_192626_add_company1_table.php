@@ -24,6 +24,7 @@ class AddCompany1Table extends Migration
         $table->string('email')->unique();
         $table->string('website')->nullable();
         $table->string('logo')->nullable();
+        $table->string('color')->nullable();
         $table->string('facebook')->nullable();
         $table->string('twitter')->nullable();
         $table->string('instagram')->nullable();
