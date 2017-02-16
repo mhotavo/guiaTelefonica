@@ -29,3 +29,19 @@
 .divider-color {
     border-color: #BDBDBD;
 }
+
+.red {
+    color: #D32F2F;
+}
+
+.blue {
+    color: #448AFF;
+}
+
+.green {
+    color: #4CAF50;
+}
+
+td {
+    padding: 5px;
+}

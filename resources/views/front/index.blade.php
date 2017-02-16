@@ -38,38 +38,54 @@
     <header>
         <div class="container">
             <form class="" role="search" method="GET" action="{{  route('search')  }}">
-      
+
                 <div class="intro-text">
-                   <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
-                   <div class="row">
-                     <div class="col-md-5 col-md-offset-2 form-group">
-                         <div class="input-group">
-                             <div class="dark-primary-color input-group-addon">
-                                 <i class="fa fa-search" aria-hidden="true"></i>
-                             </div>
-                             <input type="text" class="form-control" name="search" id="search"  placeholder="¿Qué/Quién buscas?">
-                         </div>
-                     </div>
-                     <div class="col-md-3 form-group">
+                 <div class="intro-lead-in">Bienvenido a Tú Guía!</div> 
+                 <div class="row">
+                   <div class="col-md-5 col-md-offset-2 form-group">
+                       <div class="input-group">
+                           <div class="dark-primary-color input-group-addon">
+                               <i class="fa fa-search" aria-hidden="true"></i>
+                           </div>
+                           <input type="text" class="form-control" name="search" id="search"  placeholder="¿Qué/Quién buscas?">
+                       </div>
+                   </div>
+                   <div class="col-md-3 form-group">
                       <div class="input-group">
-                         <div class="dark-primary-color input-group-addon" >
+                       <div class="dark-primary-color input-group-addon" >
                           <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
-                      <input type="text" class="form-control" name="city" id="city" placeholder="¿Donde?">
-                      <input type="hidden" class="form-control" name="idCity" id="idCity" >
-                      <input type="hidden" class="form-control" name="idCategory" id="idCategory">
+                      <input type="text" class="form-control" name="city" id="city" placeholder="¿Donde?" required="">
+                      <!-- <input type="hidden" class="form-control" name="idCity" id="idCity" >-->
+                      <input type="hidden" class="form-control" name="idCategory" id="idCategory">  
                   </div>
               </div>
-              <div class="col-md-3 form-group">
-
-              </div>
+              <div class="col-md-4 col-md-offset-4 form-group">
+                @if (count($errors)>
+                0)
+                <div class="alert alert-danger">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                    &times;
+                </a>
+                <ul>
+                    @foreach ($errors->
+                    all() as $error)
+                    <li>
+                      {{ $error }}
+                  </li>
+                  @endforeach
+              </ul>
           </div>
+          @endif
+          @include('flash::message')
+      </div>
+  </div>
          <!-- <div class="form-group">
             <label class="radio-inline"><input type="radio" name="type" checked value="c">Empresas</label>
             <label class="radio-inline"><input type="radio" name="type" value="p">Personas</label>
         </div>-->
         <div class="row">
-           <div class="col-md-12 form-group">
+         <div class="col-md-12 form-group">
                 <!--<label class="radio-inline"><input type="radio" name="optradio"> Personas</label>
                 <label class="radio-inline"><input type="radio" name="optradio"> Empresas</label> -->
                 <button type="submit" class="btn btn-info">Buscar</button>

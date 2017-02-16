@@ -60,9 +60,40 @@
     <script src="{{ asset('plugins/dataTables/js/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
+        if ($("#city").length) {
+           var pathCity = "{{ route('SearchCities') }}";
+           $('#city').typeahead({
+               source: function(query, process) {
+                   return $.get(pathCity, {
+                       query: query
+                   }, function(data) {
+                       return process(data);
+                   });
+               },
+               updater: function(item) {
+                   $('#idCity').val(item.id);
+                   return item;
+               }
+           });
+       }
+       if ($("#search, #category").length) {
+           var pathCategory = "{{ route('SearchCategories') }}";
+           $('#search, #category').typeahead({
+               source: function(query, process) {
+                   return $.get(pathCategory, {
+                       query: query
+                   }, function(data) {
+                       return process(data);
+                   });
+               },
+               updater: function(item) {
+                   $('#idCategory').val(item.id);
+                   return item;
+               }
+           });
+       }
 
-
-    </script>
-    @yield('script')
+   </script>
+   @yield('script')
 </body>
 </html>

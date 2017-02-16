@@ -16,16 +16,23 @@ class FrontController extends Controller
 		return view('front.index');
 	}
 
-
-
 	public function search(Request $request)
 	{
+
+		$this->validate($request, [
+			'city' => 'required',
+			]);
 		$search=$request->input('search');
 		$category=$request->input('idCategory');
-		$city=$request->input('idCity');
-
+		#Busca ID de la ciudad 
+		$city=explode(' -', $request->input('city'));
+		$city = City::Name($city[0])->get();
+		foreach ($city as $key => $value) {
+			$city= $value['id'];
+		}
 		#Falta: Hacer scope para category cuando sea null, buscar similar y asignar a $category
 
+		
 		$companies = Company::Name($search,$category, $city)->paginate(10);
 		return view('front.result')->with('companies', $companies);
 	}

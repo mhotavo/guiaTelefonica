@@ -42,27 +42,42 @@
         <label class="control-label col-sm-2" for="email">
             E-mail:
         </label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" name="email" placeholder=""/>
+        <div class="col-sm-4">
+        <input type="email" class="form-control" name="email" placeholder=""/>
         </div>
-    </div>
-    <div class="form-group">
         <label class="control-label col-sm-2" for="website">
-            Sitio Web:
-        </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="website" placeholder=""/>
-        </div>
+         Web:
+     </label>
+     <div class="col-sm-4">
+        <input type="text" class="form-control" name="website" placeholder="www.mycompany.com"/>
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="description">
-            Descripción:
-        </label>
-        <div class="col-sm-10">
-          <textarea name="description" id="description" cols="30" class="form-control trumbowyg" rows="6">Hola</textarea>
-      </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="facebook">
+        Facebook:
+    </label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="facebook" placeholder=""/>
+        <small class="text-info">https://www.facebook.com/<b>usuario</b></small>
+    </div>
+    <label class="control-label col-sm-2" for="website">
+        Instagram:
+    </label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="instagram" placeholder=""/>
+        <small class="text-info">https://www.instagram.com/<b>usuario</b></small>
+    </div>
+
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="description">
+        Descripción:
+    </label>
+    <div class="col-sm-10">
+      <textarea name="description" id="description" cols="30" class="form-control trumbowyg" rows="6">Hola</textarea>
   </div>
-  <div class="form-group">
+</div>
+<div class="form-group">
     <label class="control-label col-sm-2" for="website">
         Logo:
     </label>
@@ -100,11 +115,11 @@
 <script>
 
 
- $("input[name$='name']").val("Mercacentro");;
- $("input[name$='address']").val("Mz 33 Casa 21");
- $("input[name$='idCity']").val("73001000");
- $("input[name$='phones[]']").val("3224567898");
- $("input[name$='email']").val("mercacentro@gmail.com");
+   $("input[name$='name']").val("Mercacentro");;
+   $("input[name$='address']").val("Mz 33 Casa 21");
+   $("input[name$='idCity']").val("73001000");
+   $("input[name$='phones[]']").val("3224567898");
+   $("input[name$='email']").val("mercacentro@gmail.com");
 
 </script>
 @endsection

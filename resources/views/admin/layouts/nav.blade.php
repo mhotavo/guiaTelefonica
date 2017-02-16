@@ -1,23 +1,23 @@
   <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                    <span class="sr-only">
-                        Guía Telefónica
-                        <i class="fa fa-phone" aria-hidden="true">
-                        </i>
-                    </span>
-                    <span class="icon-bar">
-                    </span>
-                    <span class="icon-bar">
-                    </span>
-                    <span class="icon-bar">
-                    </span>
-                </button>
-                <a class="navbar-brand" href="{{ url("/") }}">
-                    Guia Telefonica
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">
+                    Guía Telefónica
                     <i class="fa fa-phone" aria-hidden="true">
                     </i>
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+            </button>
+            <a class="navbar-brand" href="{{ url("/") }}">
+                Guia Telefonica
+                <i class="fa fa-phone" aria-hidden="true">
+                </i>
                         <!--
                             Menú mobile
                         -->
@@ -55,7 +55,21 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+
+                            <form class="navbar-form navbar-left hidden-xs" role="search"  method="GET" action="{{  route('search')  }}">
+                                <div class="form-group">
+                                    <input type="text"   class="form-control input-sm" placeholder="Buscar" name="search" id="search" >
+                                    <input type="text"   name="city" id="city" class="form-control input-sm" placeholder="Ciudad">
+                                    <input type="hidden" class="form-control input-sm" name="idCategory" id="idCategory">  
+
+                                </div>
+                                <button type="submit" class="btn btn-default btn-sm">Buscar</button>
+                            </form>
+                            
+                        </li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())

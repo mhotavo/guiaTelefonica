@@ -9,9 +9,9 @@
    @yield('tittle', 'Buscar') 
  </title>
  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
- <link href="{{ asset('css/app.css') }}"  />
  <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
- <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}">
+ <link  href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" media="all" />
  <script>
   window.Laravel = <?php echo json_encode([
     'csrfToken' => csrf_token(),
@@ -60,12 +60,7 @@
       </div>
     </div>
   </div>
-  <script src="{{ asset('js/jquery.min.js') }}"></script>
-  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/bootstrap3-typeahead.min.js') }}"></script>
-  <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('plugins/dataTables/js/dataTables.bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/app.js') }}"></script>
+  @include('front.layouts/footer')
   @yield('script')
 </body>
 </html>

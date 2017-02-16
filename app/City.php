@@ -29,5 +29,11 @@ class City extends Model
 	{
 		return $this->hasMany('App\Branch');
 	}
+
+	public function scopeName($query, $name)
+	{
+ 
+		return $query->where('name', 'LIKE', "%$name%");
+	}
 }
 

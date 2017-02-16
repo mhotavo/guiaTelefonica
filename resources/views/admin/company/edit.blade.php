@@ -46,27 +46,44 @@
         <label class="control-label col-sm-2" for="email">
             E-mail:
         </label>
-        <div class="col-sm-10">
+        <div class="col-sm-4">
             <input type="email" class="form-control" name="email" value="{{ $company->email }}"/>
         </div>
-    </div>
-    <div class="form-group">
         <label class="control-label col-sm-2" for="website">
-            Sitio Web:
-        </label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" name="website" value="{{ $company->website }}"/>
-        </div>
+           Web:
+       </label>
+       <div class="col-sm-4">
+       <input type="text" class="form-control" name="website"   value="{{ $company->website }}"/>
+           <small class="text-info">www.mycompany.com</small>
+
+       </div>
+   </div>
+   <div class="form-group">
+    <label class="control-label col-sm-2" for="facebook">
+        Facebook:
+    </label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="facebook"  value="{{ $company->facebook }}"/>
+        <small class="text-info">www.facebook.com/<b>usuario</b></small>
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="description">
-            Descripción:
-        </label>
-        <div class="col-sm-10">
-          <textarea name="description" id="description" cols="30" class="form-control trumbowyg" rows="6">{{ $company->description }}</textarea>
-      </div>
+    <label class="control-label col-sm-2" for="instagram">
+        Instagram:
+    </label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="instagram" value="{{ $company->instagram }}"/>
+        <small class="text-info">www.instagram.com/<b>usuario</b></small>
+    </div>
+
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="description">
+        Descripción:
+    </label>
+    <div class="col-sm-10">
+      <textarea name="description" id="description" class="form-control trumbowyg"  >{{ $company->description }}</textarea>
   </div>
-  <div class="form-group ">
+</div>
+<div class="form-group ">
     <label class="control-label  col-xs-12 col-sm-2" for="phones">
         Telefonos:
     </label>
