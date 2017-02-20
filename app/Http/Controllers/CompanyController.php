@@ -142,16 +142,37 @@ class CompanyController extends Controller
         'category' => 'required',
         'idCategory' => 'required',
         ]);
-      $source = Company::find($id);
-      $source->fill($request->all()); //fill -> llenar
-      $source->save();
+      $company = Company::find($id);
+      #$company->fill($request->all()); //fill -> llenar
+      $company->name = $request->name;
+      $company->idCategory = $request->idCategory;
+      $company->description = $request->description;
+      $company->address = $request->address;
+      $company->dayOpen = $request->dayOpen;
+      $company->dayClose = $request->dayClose;
+      $company->hourOpen = $request->hourOpen;
+      $company->hourClose = $request->hourClose;
+      $company->idCity = $request->idCity;
+      $company->email = $request->email;
+      $company->website = $request->website;
+      $company->facebook = $request->facebook;
+      $company->instagram = $request->instagram;
+      if (!empty($request->file('logo'))) {
+            #Save Logo
+        $logo=$request->file('logo');
+        $file_route= time().'_'.$logo->getClientOriginalName();
+        Storage::disk('imgLogos')->put($file_route, file_get_contents($logo->getRealPath() ) );
+        $company->logo =$file_route;
+    } 
+    
+    $company->save();
 
-      $phonesDel = Phone::PhoneCompany($id);
-      $phonesDel->delete();
-      $phonesArray= $request->input('phones'); 
-      $ExtArray= $request->input('extensions'); 
+    $phonesDel = Phone::PhoneCompany($id);
+    $phonesDel->delete();
+    $phonesArray= $request->input('phones'); 
+    $ExtArray= $request->input('extensions'); 
 
-      foreach ($phonesArray as $key => $value) {
+    foreach ($phonesArray as $key => $value) {
 
         if ($value!="") {
             $phones = new Phone();

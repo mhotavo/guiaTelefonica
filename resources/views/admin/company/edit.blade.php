@@ -2,9 +2,11 @@
 @section('tittle', 'Editar Empresa')
 @section('tittlePanel',  $company->name )
 @section('content')
+@if(!empty($company->logo))
 <div class="thumbnail">
     <img src="{{ asset('img/logos/'.$company->logo) }}" class="img-responsive" alt="{{ $company->name }}"  width="304" >
 </div>
+@endif
 <form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}" enctype="multipart/form-data">
     {{ csrf_field() }}               
     <input type="hidden" name="_method" value="PUT">
@@ -52,7 +54,7 @@
             a
         </label>
         <div class="col-sm-2">
-         <select name="dayClose" id="dayClose" class="form-control">
+           <select name="dayClose" id="dayClose" class="form-control">
             <option value="Lunes">Lunes</option>
             <option value="Martes">Martes</option>
             <option value="Miercoles">Miercoles</option>
@@ -89,13 +91,13 @@
         <input type="email" class="form-control" name="email" value="{{ $company->email }}"/>
     </div>
     <label class="control-label col-sm-2" for="website">
-     Web:
- </label>
- <div class="col-sm-4">
-     <input type="text" class="form-control" name="website"   value="{{ $company->website }}"/>
-     <small class="text-info">www.mycompany.com</small>
+       Web:
+   </label>
+   <div class="col-sm-4">
+       <input type="text" class="form-control" name="website"   value="{{ $company->website }}"/>
+       <small class="text-info">www.mycompany.com</small>
 
- </div>
+   </div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="facebook">
@@ -164,7 +166,9 @@
 @endsection
 @section('script')
 <script>
-$("input[name$='dayOpen']").val("jueves");
-    $("input[name$='DayClose']").val("Otavo");
+    $( document ).ready(function() {
+        $("#dayOpen").val("{{$company->dayOpen }}");
+        $("#dayClose").val("{{$company->dayClose }}");
+    });
 </script>
 @endsection

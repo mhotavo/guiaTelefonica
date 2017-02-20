@@ -11,13 +11,19 @@
  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
  <link rel="stylesheet" href=" {{ asset('css/font-awesome.min.css') }} ">
  <link rel="stylesheet" href="{{ asset('plugins/trumbowyg/ui/trumbowyg.min.css') }}">
- <link href="{{ asset('css/app.css') }}" />
-
+ <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+ <link rel="stylesheet" href="{{ asset('plugins/dataTables/css/dataTables.bootstrap.css') }}">
+ 
  <script>
   window.Laravel = <?php echo json_encode([
     'csrfToken' => csrf_token(),
     ]); ?>
   </script>
+  <style>
+    .table_id_filter{
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
   @include('admin.layouts/nav')

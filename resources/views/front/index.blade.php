@@ -57,7 +57,7 @@
                       </div>
                       <input type="text" class="form-control city" name="city" id="city" placeholder="¿Donde?" required="">
                       <!-- <input type="hidden" class="form-control" name="idCity" id="idCity" >-->
-                      <input type="text" class="form-control" name="idCategory" id="idCategory">  
+                      <!--<input type="hidden" class="form-control" name="idCategory" id="idCategory">  -->
                   </div>
               </div>
               <div class="col-md-4 col-md-offset-4 form-group">

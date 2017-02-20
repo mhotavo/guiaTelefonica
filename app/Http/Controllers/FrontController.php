@@ -33,7 +33,7 @@ class FrontController extends Controller
 		#Falta: Hacer scope para category cuando sea null, buscar similar y asignar a $category
 
 		
-		$companies = Company::Name($search,$category, $city)->paginate(10);
+		$companies = Company::Name($search,$category, $city)->get();
 		return view('front.result')->with('companies', $companies);
 	}
 
