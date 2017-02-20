@@ -48,23 +48,42 @@ class CompanyController extends Controller
     {
 
 
-
         $this->validate($request, [
             'name' => 'required|max:30',
+            'idCategory' => 'required',
+            'description' => 'required|max:60',
             'address' => 'required|max:50',
+            'dayOpen' => 'required',
+            'dayClose' => 'required',
+            'hourOpen' => 'required',
+            'hourClose' => 'required',
             'idCity' => 'required',
             'email' => 'email|unique:companies',
             'phones' => 'required',
-            'category' => 'required',
-            'idCategory' => 'required',
+            'logo' => 'required',
             ]);
-        #Save Logo
-        $logo=$request->file('logo');
-        $file_route= time().'_'.$logo->getClientOriginalName();
-        Storage::disk('imgLogos')->put($file_route, file_get_contents($logo->getRealPath() ) );
-
-        $company = new Company($request->all());
-        $company->logo =$file_route;
+        #$company = new Company($request->all());
+        $company = new Company();
+        $company->name = $request->name;
+        $company->idCategory = $request->idCategory;
+        $company->description = $request->description;
+        $company->address = $request->address;
+        $company->dayOpen = $request->dayOpen;
+        $company->dayClose = $request->dayClose;
+        $company->hourOpen = $request->hourOpen;
+        $company->hourClose = $request->hourClose;
+        $company->idCity = $request->idCity;
+        $company->email = $request->email;
+        $company->website = $request->website;
+        $company->facebook = $request->facebook;
+        $company->instagram = $request->instagram;
+        if (!empty($request->file('logo'))) {
+            #Save Logo
+            $logo=$request->file('logo');
+            $file_route= time().'_'.$logo->getClientOriginalName();
+            Storage::disk('imgLogos')->put($file_route, file_get_contents($logo->getRealPath() ) );
+            $company->logo =$file_route;
+        } 
         $company->save();
         $phonesArray= $request->input('phones'); 
         $ExtArray= $request->input('extensions'); 
@@ -74,7 +93,6 @@ class CompanyController extends Controller
             $phones->phone = $value;
             $phones->extension = $ExtArray[$key];
             $phones->save();
-
             flash('Se ha creado empresa <strong>' .$company->name.' </strong> correctamente.' , 'success')->important();
             return redirect()->route('company.index');
         }

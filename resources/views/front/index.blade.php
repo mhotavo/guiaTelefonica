@@ -47,7 +47,7 @@
                            <div class="dark-primary-color input-group-addon">
                                <i class="fa fa-search" aria-hidden="true"></i>
                            </div>
-                           <input type="text" class="form-control" name="search" id="search"  placeholder="¿Qué/Quién buscas?">
+                           <input type="text" class="form-control category" name="search" id="search"  placeholder="¿Qué/Quién buscas?">
                        </div>
                    </div>
                    <div class="col-md-3 form-group">
@@ -55,9 +55,9 @@
                        <div class="dark-primary-color input-group-addon" >
                           <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
-                      <input type="text" class="form-control" name="city" id="city" placeholder="¿Donde?" required="">
+                      <input type="text" class="form-control city" name="city" id="city" placeholder="¿Donde?" required="">
                       <!-- <input type="hidden" class="form-control" name="idCity" id="idCity" >-->
-                      <input type="hidden" class="form-control" name="idCategory" id="idCategory">  
+                      <input type="text" class="form-control" name="idCategory" id="idCategory">  
                   </div>
               </div>
               <div class="col-md-4 col-md-offset-4 form-group">

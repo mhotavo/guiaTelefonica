@@ -8,7 +8,7 @@ class Company extends Model
 {
 	protected $table ="companies";
 
-	protected $fillable =['name', 'idCategory', 'description', 'phone', 'cellPhone', 'address', 'idCity', 'email', 'website','facebook', 'twitter', 'instagram'];
+	protected $fillable =['name', 'idCategory', 'description', 'address', '	dayOpen', 'dayClose', '	hourOpen', 'hourClose', 'idCity', 'email', 'website','facebook', 'twitter', 'instagram'];
 
 	public function category()
 	{

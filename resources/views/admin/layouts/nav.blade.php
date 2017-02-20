@@ -4,8 +4,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                 <span class="sr-only">
                     Guía Telefónica
-                    <i class="fa fa-phone" aria-hidden="true">
-                    </i>
+                    
                 </span>
                 <span class="icon-bar">
                 </span>
@@ -59,14 +58,14 @@
 
                             <form class="navbar-form navbar-left hidden-xs" role="search"  method="GET" action="{{  route('search')  }}">
                                 <div class="form-group">
-                                    <input type="text"   class="form-control input-sm" placeholder="Buscar" name="search" id="search" >
-                                    <input type="text"   name="city" id="city" class="form-control input-sm" placeholder="Ciudad">
-                                    <input type="hidden" class="form-control input-sm" name="idCategory" id="idCategory">  
+                                    <input type="text"   class="form-control input-sm " placeholder="Buscar" name="search" id="search" >
+                                    <input type="text"   name="city" id="city" class="form-control input-sm city" placeholder="Ciudad">
+                                    <!-- <input type="hidden" class="form-control input-sm" name="idCategory" id="idCategory"> --> 
 
                                 </div>
                                 <button type="submit" class="btn btn-default btn-sm">Buscar</button>
                             </form>
-                            
+
                         </li>
                     </ul>
 

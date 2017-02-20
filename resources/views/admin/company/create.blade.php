@@ -21,36 +21,75 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" for="city">
-            Categoria:
+        <label class="control-label col-sm-2" for="dayOpen">
+            Días Atención:
         </label>
-        <div class="col-sm-10">
-            <input type="text" class="typeahead form-control" name="category" id="category" placeholder=""/>
-            <input type="hidden" class="form-control" name="idCategory" id="idCategory">
+        <div class="col-sm-2">
+        <select name="dayOpen" id="dayOpen" class="form-control">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
         </div>
-    </div> 
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="city">
-            Ciudad:
+        <label class="control-label col-sm-1 text-center" for="dayClose" style="text-align: center">
+            a
         </label>
-        <div class="col-sm-10">
-            <input type="text" class="typeahead form-control" name="city" id="city" placeholder=""/>
-            <input type="hidden" class="form-control" id="idCity" name="idCity" placeholder=""/>
-        </div>
+        <div class="col-sm-2">
+           <select name="dayClose" id="dayClose" class="form-control">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miercoles">Miercoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes" selected>Viernes</option>
+            <option value="Sabado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>        
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="email">
-            E-mail:
-        </label>
-        <div class="col-sm-4">
+    <label class="control-label col-sm-1" for="opening">
+        Horario:
+    </label>
+    <div class="col-sm-2">
+        <input type="time" required class="form-control" name="hourOpen" value="08:00" />
+    </div>
+    <div class="col-sm-2">
+        <input type="time" required class="form-control" name="hourClose" value="18:00"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="city">
+        Ciudad:
+    </label>
+    <div class="col-sm-10">
+        <input type="text" class="typeahead form-control city" name="city" id="city" placeholder=""/>
+        <input type="hidden" class="form-control" id="idCity" name="idCity" placeholder=""/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="category">
+        Categoria:
+    </label>
+    <div class="col-sm-10">
+        <input type="text" class="typeahead form-control category" name="category" id="category" placeholder=""/>
+        <input type="hidden" class="form-control" name="idCategory" id="idCategory">
+    </div>
+</div> 
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email">
+        E-mail:
+    </label>
+    <div class="col-sm-4">
         <input type="email" class="form-control" name="email" placeholder=""/>
-        </div>
-        <label class="control-label col-sm-2" for="website">
-         Web:
-     </label>
-     <div class="col-sm-4">
-        <input type="text" class="form-control" name="website" placeholder="www.mycompany.com"/>
     </div>
+    <label class="control-label col-sm-2" for="website">
+     Web:
+ </label>
+ <div class="col-sm-4">
+    <input type="text" class="form-control" name="website" placeholder="www.mycompany.com"/>
+</div>
 </div>
 <div class="form-group">
     <label class="control-label col-sm-2" for="facebook">
@@ -111,15 +150,4 @@
 </div>
 </form>
 @endsection
-@section('script')
-<script>
-
-
-   $("input[name$='name']").val("Mercacentro");;
-   $("input[name$='address']").val("Mz 33 Casa 21");
-   $("input[name$='idCity']").val("73001000");
-   $("input[name$='phones[]']").val("3224567898");
-   $("input[name$='email']").val("mercacentro@gmail.com");
-
-</script>
-@endsection
+ 

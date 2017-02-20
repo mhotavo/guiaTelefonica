@@ -3,7 +3,7 @@
 @section('tittlePanel',  $company->name )
 @section('content')
 <div class="thumbnail">
-    <img src="{{ asset('imgLogos/'.$company->logo) }}" class="img-responsive" alt="{{ $company->name }}"  width="304" >
+    <img src="{{ asset('img/logos/'.$company->logo) }}" class="img-responsive" alt="{{ $company->name }}"  width="304" >
 </div>
 <form class="form-horizontal" role="form" method="POST" action="{{  route('company.update', $company->id)  }}" enctype="multipart/form-data">
     {{ csrf_field() }}               
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" for="city">
+        <label class="control-label col-sm-2" for="category">
             Categoria:
         </label>
         <div class="col-sm-10">
@@ -34,31 +34,70 @@
         </div>
     </div> 
     <div class="form-group">
-        <label class="control-label col-sm-2" for="city">
-            Ciudad:
+        <label class="control-label col-sm-2" for="dayOpen">
+            Días Atención:
         </label>
-        <div class="col-sm-10">
-            <input type="text" class="typeahead form-control" name="city" id="city" value="{{ $company->city->name }}"/>
-            <input type="hidden" class="form-control" id="idCity" name="idCity" value="{{ $company->idCity }}"/>
+        <div class="col-sm-2">
+            <select name="dayOpen" id="dayOpen" class="form-control">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
         </div>
+        <label class="control-label col-sm-1 text-center" for="dayClose" style="text-align: center">
+            a
+        </label>
+        <div class="col-sm-2">
+         <select name="dayClose" id="dayClose" class="form-control">
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miercoles">Miercoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sabado">Sábado</option>
+            <option value="Domingo">Domingo</option>
+        </select>        
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="email">
-            E-mail:
-        </label>
-        <div class="col-sm-4">
-            <input type="email" class="form-control" name="email" value="{{ $company->email }}"/>
-        </div>
-        <label class="control-label col-sm-2" for="website">
-           Web:
-       </label>
-       <div class="col-sm-4">
-       <input type="text" class="form-control" name="website"   value="{{ $company->website }}"/>
-           <small class="text-info">www.mycompany.com</small>
+    <label class="control-label col-sm-1" for="opening">
+        Horario:
+    </label>
+    <div class="col-sm-2">
+        <input type="time" required class="form-control" name="hourOpen" value="{{ $company->hourOpen }}" />
+    </div>
+    <div class="col-sm-2">
+        <input type="time" required class="form-control" name="hourClose" value="{{ $company->hourClose }}"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="city">
+        Ciudad:
+    </label>
+    <div class="col-sm-10">
+        <input type="text" class="typeahead form-control" name="city" id="city" value="{{ $company->city->name }}"/>
+        <input type="hidden" class="form-control" id="idCity" name="idCity" value="{{ $company->idCity }}"/>
+    </div>
+</div>
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email">
+        E-mail:
+    </label>
+    <div class="col-sm-4">
+        <input type="email" class="form-control" name="email" value="{{ $company->email }}"/>
+    </div>
+    <label class="control-label col-sm-2" for="website">
+     Web:
+ </label>
+ <div class="col-sm-4">
+     <input type="text" class="form-control" name="website"   value="{{ $company->website }}"/>
+     <small class="text-info">www.mycompany.com</small>
 
-       </div>
-   </div>
-   <div class="form-group">
+ </div>
+</div>
+<div class="form-group">
     <label class="control-label col-sm-2" for="facebook">
         Facebook:
     </label>
@@ -124,4 +163,8 @@
 </form>
 @endsection
 @section('script')
+<script>
+$("input[name$='dayOpen']").val("jueves");
+    $("input[name$='DayClose']").val("Otavo");
+</script>
 @endsection

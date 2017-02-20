@@ -20,6 +20,10 @@ class AddCompany1Table extends Migration
         $table->integer('idCategory')->unsigned();
         $table->text('description');
         $table->string('address');
+        $table->string('dayOpen')->nullable();;
+        $table->string('dayClose')->nullable();;
+        $table->string('hourOpen')->nullable();;
+        $table->string('hourClose')->nullable();;
         $table->integer('idCity')->unsigned();
         $table->string('email')->unique();
         $table->string('website')->nullable();

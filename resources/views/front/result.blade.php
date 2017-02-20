@@ -26,9 +26,16 @@
       </tr> 
       <tr>
         <td>
+          <i class="fa fa-calendar fa-lg blue" aria-hidden="true"></i>
+          &nbsp;
+          {{ $company->openingDays }} 
+        </td>
+      </tr>
+      <tr>
+        <td>
           <i class="fa fa-clock-o fa-lg blue" aria-hidden="true"></i>
           &nbsp;
-          Lunes a Viernes 08:00AM a 06:00pm
+          {{ $company->openingHours }}
         </td>
       </tr>
       <tr>

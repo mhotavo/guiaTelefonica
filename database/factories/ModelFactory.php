@@ -52,11 +52,19 @@ $factory->define(App\Company::class, function (Faker\Generator $faker) {
 	},
 	'description' =>   $faker->paragraph,
 	'address' => $faker->streetAddress,
+	'dayOpen' => 'Lunes',
+	'dayClose' => 'Domingo',
+	'hourOpen' => '08:00',
+	'hourClose' => '18:00',
 	'idCity' => function () {
 		return factory(App\City::class)->create()->id;
 	},
 	'email' => $faker->unique()->safeEmail,
-	'website' => $faker->url,
+	'website' => 'laravel.com',
+	'color' => '#FFA000',
+	'logo' => '1485877581_logo.png',
+	'facebook' => 'mhotavo',
+	'instagram' => 'paulinavegadiep',
 	];
 });
 

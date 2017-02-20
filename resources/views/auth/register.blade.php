@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 @section('tittle', 'Registro')
 @section('tittlePanel', 'Registro')
 @section('content')
